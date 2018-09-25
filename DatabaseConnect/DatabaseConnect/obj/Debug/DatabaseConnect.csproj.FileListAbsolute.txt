@@ -1,0 +1,10 @@
+C:\Users\a\source\repos\DatabaseConnect\DatabaseConnect\bin\Debug\DatabaseConnect.exe.config
+C:\Users\a\source\repos\DatabaseConnect\DatabaseConnect\bin\Debug\DatabaseConnect.exe
+C:\Users\a\source\repos\DatabaseConnect\DatabaseConnect\bin\Debug\DatabaseConnect.pdb
+C:\Users\a\source\repos\DatabaseConnect\DatabaseConnect\obj\Debug\DatabaseConnect.csprojAssemblyReference.cache
+C:\Users\a\source\repos\DatabaseConnect\DatabaseConnect\obj\Debug\DatabaseConnect.Form1.resources
+C:\Users\a\source\repos\DatabaseConnect\DatabaseConnect\obj\Debug\DatabaseConnect.Properties.Resources.resources
+C:\Users\a\source\repos\DatabaseConnect\DatabaseConnect\obj\Debug\DatabaseConnect.csproj.GenerateResource.cache
+C:\Users\a\source\repos\DatabaseConnect\DatabaseConnect\obj\Debug\DatabaseConnect.csproj.CoreCompileInputs.cache
+C:\Users\a\source\repos\DatabaseConnect\DatabaseConnect\obj\Debug\DatabaseConnect.exe
+C:\Users\a\source\repos\DatabaseConnect\DatabaseConnect\obj\Debug\DatabaseConnect.pdb
