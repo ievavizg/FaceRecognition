@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
 
 namespace DatabaseConnect
 {
@@ -20,23 +21,20 @@ namespace DatabaseConnect
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string connetionString;
+            string connectionString = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
+           
+            
             SqlConnection cnn;
-
-            connetionString = @"Data Source=HARMONY\DATABASE9;
-            Initial Catalog=FaceRecognitionDatabase;
-            User ID=sa;
-            Password=akademines";
-            cnn = new SqlConnection(connetionString);
+            cnn = new SqlConnection(connectionString);
 
 
             ReadDataFromDatabase(cnn);
 
-            InsertDataToDatabase(cnn, 4, "Andrius", "Voitovas");
+            //InsertDataToDatabase(cnn, 4, "Andrius", "Voitovas");
 
-            UpdateDataInDatabase(cnn);
+            //UpdateDataInDatabase(cnn);
 
-            DeleteRowFromDatabase(cnn);
+            //DeleteRowFromDatabase(cnn);
 
 
         }
