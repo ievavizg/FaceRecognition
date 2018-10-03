@@ -61,6 +61,7 @@ namespace UI.UserControls
             string filename = Application.StartupPath + @"\" + "Image" + count.ToString();
             cam.Capture(filename);
             count++;
+            MessageBox.Show("Your photo has been saved");
         }
 
         private void CameraControl_VisibleChanged(object sender, EventArgs e)
