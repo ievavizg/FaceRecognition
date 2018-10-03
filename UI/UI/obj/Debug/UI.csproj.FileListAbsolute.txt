@@ -16,3 +16,17 @@ C:\Users\neriu\source\repos\UI\UI\obj\Debug\UI.csproj.CopyComplete
 C:\Users\neriu\source\repos\UI\UI\obj\Debug\UI.UserControls.HomeControl.resources
 C:\Users\neriu\source\repos\UI\UI\obj\Debug\UI.UserControls.AddControl.resources
 C:\Users\neriu\source\repos\UI\UI\obj\Debug\UI.csprojAssemblyReference.cache
+C:\Users\a\Desktop\csharp\FaceRecognition\UI\UI\bin\Debug\UI.exe.config
+C:\Users\a\Desktop\csharp\FaceRecognition\UI\UI\bin\Debug\UI.exe
+C:\Users\a\Desktop\csharp\FaceRecognition\UI\UI\bin\Debug\UI.pdb
+C:\Users\a\Desktop\csharp\FaceRecognition\UI\UI\obj\Debug\UI.csprojAssemblyReference.cache
+C:\Users\a\Desktop\csharp\FaceRecognition\UI\UI\obj\Debug\UI.Form1.resources
+C:\Users\a\Desktop\csharp\FaceRecognition\UI\UI\obj\Debug\UI.Properties.Resources.resources
+C:\Users\a\Desktop\csharp\FaceRecognition\UI\UI\obj\Debug\UI.UserControls.AddControl.resources
+C:\Users\a\Desktop\csharp\FaceRecognition\UI\UI\obj\Debug\UI.UserControls.CameraControl.resources
+C:\Users\a\Desktop\csharp\FaceRecognition\UI\UI\obj\Debug\UI.UserControls.HomeControl.resources
+C:\Users\a\Desktop\csharp\FaceRecognition\UI\UI\obj\Debug\UI.csproj.GenerateResource.cache
+C:\Users\a\Desktop\csharp\FaceRecognition\UI\UI\obj\Debug\UI.csproj.CoreCompileInputs.cache
+C:\Users\a\Desktop\csharp\FaceRecognition\UI\UI\obj\Debug\UI.csproj.CopyComplete
+C:\Users\a\Desktop\csharp\FaceRecognition\UI\UI\obj\Debug\UI.exe
+C:\Users\a\Desktop\csharp\FaceRecognition\UI\UI\obj\Debug\UI.pdb

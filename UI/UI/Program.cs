@@ -9,7 +9,7 @@ namespace UI
     static class Program
     {
         /// <summary>
-        /// The main entry point for the application.
+        /// The main entry point for the application. 2018-10-03 start
         /// </summary>
         [STAThread]
         static void Main()
