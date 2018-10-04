@@ -45,7 +45,9 @@
     <Reference Include="DarrenLee.Media">
       <HintPath>..\..\..\..\Desktop\WebCam\DarrenLee.Media.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
