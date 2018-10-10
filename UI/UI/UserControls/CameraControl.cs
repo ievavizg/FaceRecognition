@@ -14,7 +14,7 @@ namespace UI.UserControls
     public partial class CameraControl : UserControl
     {
         
-        int count = 0;
+        private int count = 0;
         Camera cam = new Camera();
         public CameraControl()
         {
@@ -28,13 +28,13 @@ namespace UI.UserControls
         {
             var cameraDevices = cam.GetCameraSources();
             var cameraResolutions = cam.GetSupportedResolutions();
-            foreach (var d in cameraDevices)
+            foreach (var device in cameraDevices)
             {
-                cmbCameraDevices.Items.Add(d);
+                cmbCameraDevices.Items.Add(device);
             }
-            foreach (var d in cameraResolutions)
+            foreach (var resolution in cameraResolutions)
             {
-                cmdCameraResolutions.Items.Add(d);
+                cmdCameraResolutions.Items.Add(resolution);
             }
             cmbCameraDevices.SelectedIndex = 0;
             cmdCameraResolutions.SelectedIndex = 0;
@@ -77,6 +77,10 @@ namespace UI.UserControls
         {
             cam.Stop();
         }
-        
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

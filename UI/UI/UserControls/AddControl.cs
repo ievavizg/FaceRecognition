@@ -160,6 +160,11 @@ namespace UI.UserControls
             cnn.Close();
         }
 
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
 
         /*string provider = ConfigurationManager.AppSettings["provider"];
         string connectionString = ConfigurationManager.AppSettings["connectionString"];
