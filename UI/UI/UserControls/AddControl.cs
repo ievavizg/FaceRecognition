@@ -21,7 +21,7 @@ namespace UI.UserControls
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void UploadPhotoButton_Click(object sender, EventArgs e)
         {
             string imageLocation = "";
             try
@@ -31,7 +31,7 @@ namespace UI.UserControls
                 if(dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
                     imageLocation = dialog.FileName;
-                    image1.ImageLocation = imageLocation;
+                    ImageView.ImageLocation = imageLocation;
                 }
             }
             catch(Exception)
@@ -40,31 +40,12 @@ namespace UI.UserControls
             }
         }
 
-        private void label2_Click(object sender, EventArgs e)
+
+        private void AddButton_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            string name = textBox1.Text;
-            string surname = textBox2.Text;
-            string information = textBox3.Text;
+            string name = NameText.Text;
+            string surname = SurnameText.Text;
+            string information = InformationText.Text;
 
             string connetionString;
             SqlConnection cnn;
@@ -159,6 +140,13 @@ namespace UI.UserControls
 
             cnn.Close();
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        
 
 
         /*string provider = ConfigurationManager.AppSettings["provider"];
