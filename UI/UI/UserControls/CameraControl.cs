@@ -14,7 +14,7 @@ namespace UI.UserControls
     public partial class CameraControl : UserControl
     {
         
-        private int count = 0;
+        private int ImageCout = 0;
         Camera cam = new Camera();
         public CameraControl()
         {
@@ -55,12 +55,12 @@ namespace UI.UserControls
             cam.ChangeCamera(cmbCameraDevices.SelectedIndex);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void SaveButton_Click(object sender, EventArgs e)
         {
 
             string filename = Application.StartupPath + @"\" + "Image" + count.ToString();
             cam.Capture(filename);
-            count++;
+            ImageCout++;
             MessageBox.Show("Your photo has been saved");
         }
 
@@ -76,11 +76,6 @@ namespace UI.UserControls
         public void CloseCamera()
         {
             cam.Stop();
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
