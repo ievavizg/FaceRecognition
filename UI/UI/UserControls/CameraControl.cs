@@ -58,7 +58,7 @@ namespace UI.UserControls
         private void SaveButton_Click(object sender, EventArgs e)
         {
 
-            string filename = Application.StartupPath + @"\" + "Image" + count.ToString();
+            string filename = Application.StartupPath + @"\" + "Image" + ImageCout.ToString();
             cam.Capture(filename);
             ImageCout++;
             MessageBox.Show("Your photo has been saved");
