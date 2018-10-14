@@ -78,7 +78,7 @@
             this.InformationLabel.ForeColor = System.Drawing.SystemColors.Control;
             this.InformationLabel.Location = new System.Drawing.Point(27, 273);
             this.InformationLabel.Name = "InformationLabel";
-            this.InformationLabel.Size = new System.Drawing.Size(170, 34);
+            this.InformationLabel.Size = new System.Drawing.Size(135, 25);
             this.InformationLabel.TabIndex = 4;
             this.InformationLabel.Text = "Information";
             // 
@@ -89,7 +89,7 @@
             this.SurnameText.ForeColor = System.Drawing.SystemColors.Control;
             this.SurnameText.Location = new System.Drawing.Point(33, 191);
             this.SurnameText.Name = "SurnameText";
-            this.SurnameText.Size = new System.Drawing.Size(137, 32);
+            this.SurnameText.Size = new System.Drawing.Size(137, 27);
             this.SurnameText.TabIndex = 3;
             // 
             // SurnameLabel
@@ -99,7 +99,7 @@
             this.SurnameLabel.ForeColor = System.Drawing.SystemColors.Control;
             this.SurnameLabel.Location = new System.Drawing.Point(27, 154);
             this.SurnameLabel.Name = "SurnameLabel";
-            this.SurnameLabel.Size = new System.Drawing.Size(134, 34);
+            this.SurnameLabel.Size = new System.Drawing.Size(107, 25);
             this.SurnameLabel.TabIndex = 2;
             this.SurnameLabel.Text = "Surname";
             // 
@@ -110,7 +110,7 @@
             this.NameLabel.ForeColor = System.Drawing.SystemColors.Control;
             this.NameLabel.Location = new System.Drawing.Point(27, 48);
             this.NameLabel.Name = "NameLabel";
-            this.NameLabel.Size = new System.Drawing.Size(99, 34);
+            this.NameLabel.Size = new System.Drawing.Size(79, 25);
             this.NameLabel.TabIndex = 1;
             this.NameLabel.Text = "Name";
             // 
@@ -121,7 +121,7 @@
             this.NameText.ForeColor = System.Drawing.SystemColors.Control;
             this.NameText.Location = new System.Drawing.Point(33, 85);
             this.NameText.Name = "NameText";
-            this.NameText.Size = new System.Drawing.Size(137, 32);
+            this.NameText.Size = new System.Drawing.Size(137, 27);
             this.NameText.TabIndex = 0;
             // 
             // panel2

@@ -21,6 +21,11 @@ namespace UI.UserControls
             InitializeComponent();
         }
 
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
         private void UploadPhotoButton_Click(object sender, EventArgs e)
         {
             string imageLocation = "";
@@ -45,10 +50,9 @@ namespace UI.UserControls
         //Add button action
         private void AddButton_Click(object sender, EventArgs e)
         {
-            //string firstName = textBox1.Text;
-            //string lastName = textBox2.Text;
-            //string information = textBox3.Text;
-            int count = 1;
+            string firstName = NameText.Text;
+            string lastName = SurnameText.Text;
+            string information = InformationText.Text;
 
             //Getting information from app.config
             var connection = new SqlConnection();
@@ -64,29 +68,13 @@ namespace UI.UserControls
             }
 
 
-            // inserting
-            var commandString = "INSERT INTO dbo.PeopleFaceTable (First_Name, Last_Name ,Education, Photo) VALUES (@First_Name, @Last_Name, @Education, @Photo)"; //1,'Einius','Staupas','Pasilai','Vilnius university'
-            using (SqlCommand command = new SqlCommand(commandString, connection))
-            {
-                command.Parameters.AddWithValue("@First_Name", "Ieva");
-                command.Parameters.AddWithValue("@Last_Name", "Vizgirdaite");
-                command.Parameters.AddWithValue("@Education", "Vilnius university");
-                command.Parameters.AddWithValue("@Photo", "87d87e9wq7d7w9f7889");
+            InsertRow(firstName, lastName, information, connection);
 
-
-                connection.Open();
-                int result = command.ExecuteNonQuery();
-                connection.Close();
-
-                // Check Error
-                if (result < 0)
-                    MessageBox.Show("negeraii");
-            }
 
         }
 
 
-        // Create table to database
+        // Create table to database   CreateTable(connection);
         public void CreateTable(SqlConnection connection)
         {
             try
@@ -104,135 +92,27 @@ namespace UI.UserControls
         }
 
 
-
-
-
-
-
-
-
-
-
-        // Insert data to database
-        public void InsertDataToDatabase(SqlConnection cnn, string vardas, string pavarde, string information)
+        // Insert row to table   InsertRow(firstName, lastName, information, connection);
+        public void InsertRow(string firstName, string lastName, string information, SqlConnection connection)
         {
-            cnn.Open();
+            var commandString = "INSERT INTO dbo.PeopleFaceTable (First_Name, Last_Name ,Education, Photo) VALUES (@First_Name, @Last_Name, @Education, @Photo)";
+            SqlCommand command = new SqlCommand(commandString, connection);
+            
+                command.Parameters.AddWithValue("@First_Name", firstName);
+                command.Parameters.AddWithValue("@Last_Name", lastName);
+                command.Parameters.AddWithValue("@Education", information);
+                command.Parameters.AddWithValue("@Photo", "87d87e9wq777777d7w9f7889");
 
-            SqlCommand command;
-            SqlDataAdapter adapter = new SqlDataAdapter();
-            String sqlInsert = "";
-
-            sqlInsert = "Insert into personInfoTable (Vardas,Pavarde,Informacija) values('" + vardas + "','" + pavarde + "','" + information + "')";
-            command = new SqlCommand(sqlInsert, cnn);
-            adapter.InsertCommand = new SqlCommand(sqlInsert, cnn);
-            adapter.InsertCommand.ExecuteNonQuery();
-
-            command.Dispose();
-
-            cnn.Close();
-        }
-
-        // Read data from database
-        public void ReadDataFromDatabase(SqlConnection cnn)
-        {
-            cnn.Open();
-
-            SqlCommand command;
-            SqlDataReader dataReader;
-            String sqlRead, Output = "";
-
-            sqlRead = "SELECT Vardas, Pavarde FROM FaceRecognitionTable";
-            command = new SqlCommand(sqlRead, cnn);
-            dataReader = command.ExecuteReader();
-            while (dataReader.Read())
-            {
-                Output = Output + dataReader.GetValue(0) + " " + dataReader.GetValue(1) + "\n";
-            }
-            MessageBox.Show(Output);
-            dataReader.Close();
-            command.Dispose();
-
-            cnn.Close();
-        }
-
-        // Update data in database
-        public void UpdateDataInDatabase(SqlConnection cnn)
-        {
-            cnn.Open();
-
-            SqlCommand command;
-            SqlDataAdapter adapter = new SqlDataAdapter();
-            String sqlUpdate = "";
-
-            sqlUpdate = "Update FaceRecognitionTable set Pavarde = '" + "Rupšys" + "' where Vardas = '" + "Andrius" + "'";
-            command = new SqlCommand(sqlUpdate, cnn);
-            adapter.UpdateCommand = new SqlCommand(sqlUpdate, cnn);
-            adapter.UpdateCommand.ExecuteNonQuery();
-
-            command.Dispose();
-
-            cnn.Close();
-        }
-
-        // Delete row from database
-        public void DeleteRowFromDatabase(SqlConnection cnn)
-        {
-            cnn.Open();
-
-            SqlCommand command;
-            SqlDataAdapter adapter = new SqlDataAdapter();
-            String sqlDelete = "";
-
-            sqlDelete = "Delete FaceRecognitionTable where ID = 4";
-
-            command = new SqlCommand(sqlDelete, cnn);
-            adapter.DeleteCommand = new SqlCommand(sqlDelete, cnn);
-            adapter.DeleteCommand.ExecuteNonQuery();
-
-            command.Dispose();
-
-            cnn.Close();
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        
-
-
-        /*string provider = ConfigurationManager.AppSettings["provider"];
-        string connectionString = ConfigurationManager.AppSettings["connectionString"];
-        DbProviderFactory factory = DbProviderFactories.GetFactory(provider);
-            using (DbConnection connection = factory.CreateConnection())
-            {
-                if(connection == null)
-                {
-                    MessageBox.Show("conn error");
-                    return;
-                }
-                connection.ConnectionString = connectionString;
                 connection.Open();
-                DbCommand command = factory.CreateCommand();
-                if (command == null)
-                {
-                    MessageBox.Show("comm error");
-                    return;
-                }
-                command.Connection = connection;
-                command.CommandText = "Select * from People";
-
-                using (DbDataReader dataReader = command.ExecuteReader())
-                {
-                    while (dataReader.Read())
-                    {
-                        MessageBox.Show($"{dataReader["Id"]}" + $"{dataReader["Vardas"]}");
-                    }
-                }
+                int result = command.ExecuteNonQuery();
                 connection.Close();
-            }*/
 
+                // Check Error
+                if (result < 0)
+                    MessageBox.Show("negerai");
+            
+        }
 
+ 
     }
 }
