@@ -97,7 +97,7 @@ namespace UI.UserControls
 
                 // Check Error
                 if (result < 0)
-                    MessageBox.Show("negerai");
+                    MessageBox.Show("negeraii");
             }
 
 
