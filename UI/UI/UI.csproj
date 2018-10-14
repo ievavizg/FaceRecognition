@@ -64,8 +64,11 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FaceRecognition.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReadingFiles.cs" />
+    <Compile Include="User.cs" />
     <Compile Include="UserControls\AddControl.cs">
       <SubType>UserControl</SubType>
     </Compile>

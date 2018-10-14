@@ -57,7 +57,7 @@ namespace UI.UserControls
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            
             string filename = Application.StartupPath + @"\" + "Image" + count.ToString();
             cam.Capture(filename);
             count++;
