@@ -70,7 +70,7 @@ namespace UI.UserControls
             {
                 command.Parameters.AddWithValue("@First_Name", "Ieva");
                 command.Parameters.AddWithValue("@Last_Name", "Vizgirdaite");
-                command.Parameters.AddWithValue("@Education", "Vilnius university");
+                command.Parameters.AddWithValue("@Education", "Studente");
                 command.Parameters.AddWithValue("@Photo", "87d87e9wq7d7w9f7889");
 
 
