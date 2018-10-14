@@ -101,7 +101,7 @@ namespace UI.UserControls
             command.Parameters.AddWithValue("@First_Name", firstName);
             command.Parameters.AddWithValue("@Last_Name", lastName);
             command.Parameters.AddWithValue("@Education", information);
-            command.Parameters.AddWithValue("@Photo", "87d87e9wq777777d7w9f7889");
+            command.Parameters.AddWithValue("@Photo", "87d87e9wq7888d7w9f7889");
 
             connection.Open();
             int result = command.ExecuteNonQuery();
