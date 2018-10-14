@@ -20,7 +20,6 @@ C:\Users\a\Desktop\csharp\FaceRecognition\UI\UI\bin\Debug\UI.exe.config
 C:\Users\a\Desktop\csharp\FaceRecognition\UI\UI\bin\Debug\UI.exe
 C:\Users\a\Desktop\csharp\FaceRecognition\UI\UI\bin\Debug\UI.pdb
 C:\Users\a\Desktop\csharp\FaceRecognition\UI\UI\obj\Debug\UI.csprojAssemblyReference.cache
-C:\Users\a\Desktop\csharp\FaceRecognition\UI\UI\obj\Debug\UI.Form1.resources
 C:\Users\a\Desktop\csharp\FaceRecognition\UI\UI\obj\Debug\UI.Properties.Resources.resources
 C:\Users\a\Desktop\csharp\FaceRecognition\UI\UI\obj\Debug\UI.UserControls.AddControl.resources
 C:\Users\a\Desktop\csharp\FaceRecognition\UI\UI\obj\Debug\UI.UserControls.CameraControl.resources
@@ -59,3 +58,4 @@ C:\Users\andrius\Source\Repos\FaceRecognition\UI\UI\obj\Debug\UI.exe
 C:\Users\andrius\Source\Repos\FaceRecognition\UI\UI\obj\Debug\UI.pdb
 C:\Users\andrius\Source\Repos\FaceRecognition\UI\UI\bin\Debug\UI.exe.CodeAnalysisLog.xml
 C:\Users\andrius\Source\Repos\FaceRecognition\UI\UI\bin\Debug\UI.exe.lastcodeanalysissucceeded
+C:\Users\a\Desktop\csharp\FaceRecognition\UI\UI\obj\Debug\UI.MainWindow.resources
