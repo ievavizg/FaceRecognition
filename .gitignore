@@ -334,4 +334,5 @@ ASALocalRun/
 .localhistory/
 
 # Config file
-App.config
+*.config
+
