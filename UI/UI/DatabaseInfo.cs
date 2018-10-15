@@ -16,6 +16,8 @@ namespace UI
 {
     class DatabaseInfo
     {
+        enum Errors { Connection_Error , Inserting_Error };
+
         //Getting information from app.config
         public SqlConnection GetConfigInfo()
         {
@@ -47,7 +49,7 @@ namespace UI
             }
             catch (Exception ex)
             {
-                MessageBox.Show("negerai");
+                MessageBox.Show(Errors.Connection_Error.ToString());
             }
         }
 
@@ -69,7 +71,7 @@ namespace UI
 
             // Check Error
             if (result < 0)
-                MessageBox.Show("negerai");
+                MessageBox.Show(Errors.Inserting_Error.ToString());
 
         }
     }
