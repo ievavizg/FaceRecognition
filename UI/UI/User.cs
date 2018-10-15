@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace UI
 {
-    class User
+    public class User
     {
         public User(string firstName, string lastName, string information)
         {

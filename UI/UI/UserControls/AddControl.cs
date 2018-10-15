@@ -67,8 +67,8 @@ namespace UI.UserControls
                 }
             }
 
-
-            InsertRow(firstName, lastName, information, connection);
+            User user = new User(firstName, lastName, information);
+            InsertRow(user, connection);
 
 
         }
@@ -93,14 +93,14 @@ namespace UI.UserControls
 
 
         // Insert row to table   InsertRow(firstName, lastName, information, connection);
-        public void InsertRow(string firstName, string lastName, string information, SqlConnection connection)
+        public void InsertRow(User user, SqlConnection connection)
         {
             var commandString = "INSERT INTO dbo.PeopleFaceTable (First_Name, Last_Name ,Education, Photo) VALUES (@First_Name, @Last_Name, @Education, @Photo)";
             SqlCommand command = new SqlCommand(commandString, connection);
 
-            command.Parameters.AddWithValue("@First_Name", firstName);
-            command.Parameters.AddWithValue("@Last_Name", lastName);
-            command.Parameters.AddWithValue("@Education", information);
+            command.Parameters.AddWithValue("@First_Name", user.FirstName);
+            command.Parameters.AddWithValue("@Last_Name", user.LastName);
+            command.Parameters.AddWithValue("@Education", user.Information);
             command.Parameters.AddWithValue("@Photo", "87d87e9wq7888d7w9f7889");
 
             connection.Open();
