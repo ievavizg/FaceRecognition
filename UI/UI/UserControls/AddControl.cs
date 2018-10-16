@@ -34,23 +34,26 @@ namespace UI.UserControls
         //Add button action
         private void AddButton_Click(object sender, EventArgs e)
         {
+
             string firstName = NameText.Text;
             string lastName = SurnameText.Text;
             string information = InformationText.Text;
-            if(errorcode == 0 || string.IsNullOrWhiteSpace(firstName) || string.IsNullOrWhiteSpace(lastName) || string.IsNullOrWhiteSpace(information))
+
+            if (string.IsNullOrWhiteSpace(firstName) || string.IsNullOrWhiteSpace(lastName) || string.IsNullOrWhiteSpace(information))
             {
-                ErrorHandling.Show_IncorrectInfo_Error();
+                ErrorHandling.Show_Inserting_Error();
             }
-            else{
-                 DatabaseInfo data = new DatabaseInfo();
-                 var connection = data.GetConfigInfo();
-                 User user = new User(firstName, lastName, information);
-                 data.InsertRow(user, connection);
-                 NameText.Text = String.Empty;
-                 SurnameText.Text = String.Empty;
-                 InformationText.Text = String.Empty;
+            else
+            {
+                DatabaseInfo data = new DatabaseInfo();
+                var connection = data.GetConfigInfo();
+                User user = new User(firstName, lastName, information);
+                data.InsertRow(user, connection);
+                NameText.Text = String.Empty;
+                SurnameText.Text = String.Empty;
+                InformationText.Text = String.Empty;
             }
-            
+
 
         }
 
