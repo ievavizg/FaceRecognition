@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    enum Errors { Connection_Error, Inserting_Error, Uploading_Error };
+    enum Errors { Connection_Error, Inserting_Error, Uploading_Error, Incorrect_Information_Error };
     class ErrorHandling
     {
         public static void PrintError(Exception e)
@@ -21,6 +21,10 @@ namespace UI
         public static void Show_Uploading_Error()
         {
             MessageBox.Show(Errors.Uploading_Error.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        public static void Show_IncorrectInfo_Error()
+        {
+            MessageBox.Show(Errors.Incorrect_Information_Error.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

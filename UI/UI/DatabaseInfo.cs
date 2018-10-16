@@ -16,8 +16,6 @@ namespace UI
 {
     class DatabaseInfo
     {
-        
-
         //Getting information from app.config
         public SqlConnection GetConfigInfo()
         {
@@ -47,7 +45,7 @@ namespace UI
                     command.ExecuteNonQuery();
                 connection.Close();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 ErrorHandling.Show_Connection_Error();
             }

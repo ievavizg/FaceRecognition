@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.InformationText = new System.Windows.Forms.TextBox();
             this.InformationLabel = new System.Windows.Forms.Label();
@@ -41,15 +40,20 @@
             this.AddButton = new System.Windows.Forms.Button();
             this.UploadPhotoButton = new System.Windows.Forms.Button();
             this.ImageView = new System.Windows.Forms.PictureBox();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.icon1 = new System.Windows.Forms.PictureBox();
+            this.icon2 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImageView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.icon1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.icon2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.icon2);
+            this.panel1.Controls.Add(this.icon1);
             this.panel1.Controls.Add(this.InformationText);
             this.panel1.Controls.Add(this.InformationLabel);
             this.panel1.Controls.Add(this.SurnameText);
@@ -61,7 +65,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(309, 594);
             this.panel1.TabIndex = 0;
-            
             // 
             // InformationText
             // 
@@ -91,6 +94,7 @@
             this.SurnameText.Name = "SurnameText";
             this.SurnameText.Size = new System.Drawing.Size(137, 32);
             this.SurnameText.TabIndex = 3;
+            this.SurnameText.Leave += new System.EventHandler(this.SurnameText_Leave);
             // 
             // SurnameLabel
             // 
@@ -123,23 +127,23 @@
             this.NameText.Name = "NameText";
             this.NameText.Size = new System.Drawing.Size(137, 32);
             this.NameText.TabIndex = 0;
+            this.NameText.Leave += new System.EventHandler(this.NameText_Leave);
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.UploadPhotoButton);
             this.panel2.Controls.Add(this.ImageView);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(309, 0);
+            this.panel2.Location = new System.Drawing.Point(309, 22);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(495, 594);
+            this.panel2.Size = new System.Drawing.Size(495, 572);
             this.panel2.TabIndex = 1;
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.AddButton);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 465);
+            this.panel3.Location = new System.Drawing.Point(0, 443);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(495, 129);
             this.panel3.TabIndex = 2;
@@ -173,11 +177,23 @@
             this.ImageView.TabIndex = 0;
             this.ImageView.TabStop = false;
             // 
-            // contextMenuStrip1
+            // icon1
             // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            this.icon1.Location = new System.Drawing.Point(188, 86);
+            this.icon1.Name = "icon1";
+            this.icon1.Size = new System.Drawing.Size(34, 31);
+            this.icon1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.icon1.TabIndex = 6;
+            this.icon1.TabStop = false;
+            // 
+            // icon2
+            // 
+            this.icon2.Location = new System.Drawing.Point(188, 192);
+            this.icon2.Name = "icon2";
+            this.icon2.Size = new System.Drawing.Size(34, 31);
+            this.icon2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.icon2.TabIndex = 7;
+            this.icon2.TabStop = false;
             // 
             // AddControl
             // 
@@ -187,11 +203,14 @@
             this.Controls.Add(this.panel1);
             this.Name = "AddControl";
             this.Size = new System.Drawing.Size(804, 594);
+            this.VisibleChanged += new System.EventHandler(this.AddControl_VisibleChanged);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ImageView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.icon1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.icon2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -210,6 +229,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.TextBox InformationText;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.PictureBox icon2;
+        private System.Windows.Forms.PictureBox icon1;
     }
 }
