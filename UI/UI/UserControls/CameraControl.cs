@@ -14,7 +14,7 @@ namespace UI.UserControls
     public partial class CameraControl : UserControl
     {
         
-        private int ImageCout = 0;
+        private int ImageCount = 0;
         Camera cam = new Camera();
         public CameraControl()
         {
@@ -58,9 +58,9 @@ namespace UI.UserControls
         private void SaveButton_Click(object sender, EventArgs e)
         {
 
-            string filename = Application.StartupPath + @"\" + "Image" + ImageCout.ToString();
+            string filename = Application.StartupPath + @"\" + "Image" + ImageCount.ToString();
             cam.Capture(filename);
-            ImageCout++;
+            ImageCount++;
             MessageBox.Show("Your photo has been saved");
         }
 

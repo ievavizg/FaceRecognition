@@ -15,32 +15,28 @@ namespace UI
         {
             try
             {
-
-        using (FileStream fsSource = new FileStream(path,
-            FileMode.Open, FileAccess.Read))
-        {
-                    using(StreamReader sr = new StreamReader(fsSource))
-                        {
+            using (FileStream fsSource = new FileStream(path,
+            FileMode.Open, FileAccess.Read)){
+                    using (StreamReader sr = new StreamReader(fsSource))
+                    {
                         string line = string.Empty;
-                        while((line = sr.ReadLine()) != null)
+                        while ((line = sr.ReadLine()) != null)
+                        {
+                            if (line != string.Empty)
                             {
-                                if(line != string.Empty)
-                                {
-                                    lines.Add(line);
-                                }
+                                lines.Add(line);
                             }
-                            
-                            apiInformation.apiKey = lines[0];
-                            apiInformation.apiLoc = lines[1];
-                            sr.Close();
-                         }
-
-        }
-    }
-    catch (FileNotFoundException ioEx)
-    {
-        Console.WriteLine(ioEx.Message);
-    }
+                        }
+                        apiInformation.apiKey = lines[0];
+                        apiInformation.apiLoc = lines[1];
+                        sr.Close();
+                    }
+                }
+            }
+            catch (FileNotFoundException ioEx)
+            {
+                    ErrorHandling.PrintError(ioEx);
+            }
         }
     }
 }

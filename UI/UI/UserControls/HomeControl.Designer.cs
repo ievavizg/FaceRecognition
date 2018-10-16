@@ -51,9 +51,9 @@
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
             this.label1.Location = new System.Drawing.Point(27, 34);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(348, 40);
+            this.label1.Size = new System.Drawing.Size(198, 40);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Information about us";
+            this.label1.Text = "Welcome!!!";
             // 
             // listView1
             // 
@@ -65,7 +65,6 @@
             this.listView1.Size = new System.Drawing.Size(804, 459);
             this.listView1.TabIndex = 1;
             this.listView1.UseCompatibleStateImageBehavior = false;
-           
             // 
             // HomeControl
             // 
