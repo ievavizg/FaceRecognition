@@ -15,10 +15,9 @@ namespace UI
         {
             try
             {
-            using (FileStream fsSource = new FileStream(path,
-            FileMode.Open, FileAccess.Read)){
+            using (FileStream fsSource = new FileStream(path, FileMode.Open, FileAccess.Read)){
                     using (StreamReader sr = new StreamReader(fsSource))
-                    {
+                 {
                         string line = string.Empty;
                         while ((line = sr.ReadLine()) != null)
                         {

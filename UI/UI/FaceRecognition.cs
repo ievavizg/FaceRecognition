@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+
 public struct apiInfo
 {
     public String apiKey, apiLoc;
@@ -22,7 +23,7 @@ namespace UI
         ReadFiles nReader = new ReadFiles();
         public void getInformation()
         {
-             String file = @"..\Debug\key.txt";
+            String file = @"..\Debug\key.txt";
             String path = Path.GetFullPath(file);
             nReader.readKeyFile(ref apiInformation, path);
         }
