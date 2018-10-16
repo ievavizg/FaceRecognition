@@ -56,10 +56,12 @@ namespace UI.UserControls
 
         private void NameText_Leave(object sender, EventArgs e)
         {
-            if(RegexClass.Ragex_Check(NameText) == 1)
+            if (RegexClass.Ragex_Check(NameText) == 1)
             {
                 icon1.Image = Properties.Resources.rsz_tick;
-                errorcode = 1;
+                if (errorcode != 0)
+                    errorcode = 1;
+                
             }
             else{
                 icon1.Image = Properties.Resources.cross;
@@ -73,7 +75,9 @@ namespace UI.UserControls
             if (RegexClass.Ragex_Check(SurnameText) == 1)
             {
                 icon2.Image = Properties.Resources.rsz_tick;
-                errorcode = 1;
+                if (errorcode != 0)
+                    errorcode = 1;
+                    
             }
             else
             {
