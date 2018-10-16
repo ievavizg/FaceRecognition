@@ -39,7 +39,7 @@ namespace UI.UserControls
             string lastName = SurnameText.Text;
             string information = InformationText.Text;
 
-            if (string.IsNullOrWhiteSpace(firstName) || string.IsNullOrWhiteSpace(lastName) || string.IsNullOrWhiteSpace(information))
+            if (errorcode == 1 || string.IsNullOrWhiteSpace(firstName) || string.IsNullOrWhiteSpace(lastName) || string.IsNullOrWhiteSpace(information))
             {
                 ErrorHandling.Show_Inserting_Error();
             }
