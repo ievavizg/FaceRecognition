@@ -33,7 +33,6 @@ C:\Users\neriu\Desktop\Topas\FaceRecognition\UI\UI\bin\Debug\UI.exe.config
 C:\Users\neriu\Desktop\Topas\FaceRecognition\UI\UI\bin\Debug\UI.exe
 C:\Users\neriu\Desktop\Topas\FaceRecognition\UI\UI\bin\Debug\UI.pdb
 C:\Users\neriu\Desktop\Topas\FaceRecognition\UI\UI\obj\Debug\UI.csprojAssemblyReference.cache
-C:\Users\neriu\Desktop\Topas\FaceRecognition\UI\UI\obj\Debug\UI.Properties.Resources.resources
 C:\Users\neriu\Desktop\Topas\FaceRecognition\UI\UI\obj\Debug\UI.UserControls.AddControl.resources
 C:\Users\neriu\Desktop\Topas\FaceRecognition\UI\UI\obj\Debug\UI.UserControls.CameraControl.resources
 C:\Users\neriu\Desktop\Topas\FaceRecognition\UI\UI\obj\Debug\UI.UserControls.HomeControl.resources
@@ -87,3 +86,4 @@ C:\Users\andrius\Source\Repos\FaceRecognition6\UI\UI\bin\Debug\UI.exe.config
 C:\Users\andrius\Source\Repos\FaceRecognition6\UI\UI\bin\Debug\UI.exe
 C:\Users\andrius\Source\Repos\FaceRecognition6\UI\UI\bin\Debug\UI.pdb
 C:\Users\andrius\Source\Repos\FaceRecognition6\UI\UI\obj\Debug\UI.csproj.CopyComplete
+C:\Users\neriu\Desktop\Topas\FaceRecognition\UI\UI\obj\Debug\UI.Properties.Resources.resources
