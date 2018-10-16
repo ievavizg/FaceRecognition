@@ -21,11 +21,6 @@ namespace UI.UserControls
             InitializeComponent();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void UploadPhotoButton_Click(object sender, EventArgs e)
         {
             string imageLocation = "";
@@ -41,13 +36,14 @@ namespace UI.UserControls
             }
             catch (Exception)
             {
-                MessageBox.Show("An Error Occured", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorHandling.Show_Uploading_Error();
             }
         }
 
         //Add button action
         private void AddButton_Click(object sender, EventArgs e)
         {
+
             string firstName = NameText.Text;
             string lastName = SurnameText.Text;
             string information = InformationText.Text;
