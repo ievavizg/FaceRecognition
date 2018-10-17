@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace UI.UserControls
 {
@@ -54,6 +55,7 @@ namespace UI.UserControls
                 data.InsertRow(user, connection);// Inesrt row to table
                 var Users = new List<User> { };
                 data.GetDataFromDatabase(Users, connection);// Read all information to Collection
+                var OrderedUsers = Users.OrderBy(p => p.FirstName);// Linq ordering by name ascending               
                 NameText.Text = String.Empty;
                 SurnameText.Text = String.Empty;
                 InformationText.Text = String.Empty;
