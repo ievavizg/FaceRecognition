@@ -52,7 +52,7 @@ namespace UI
         }
 
 
-        // Insert row to table   InsertRow(firstName, lastName, information, connection);
+        // Insert row to table   InsertRow(user, connection);
         public void InsertRow(User user, SqlConnection connection)
         {
             var commandString = "INSERT INTO dbo.PeopleFaceTable (First_Name, Last_Name ,Education, Photo) VALUES (@First_Name, @Last_Name, @Education, @Photo)";
@@ -71,6 +71,31 @@ namespace UI
             if (result < 0)
                 ErrorHandling.Show_Inserting_Error();
 
+        }
+
+        // Get data from database    GetDataFromDatabase(connection);
+        public void GetDataFromDatabase(List<User> Users, SqlConnection connection)
+        {
+            //var user = new User
+            var commandString = "Select * From dbo.PeopleFaceTable";
+            using (SqlCommand command = new SqlCommand(commandString, connection))
+            {
+                connection.Open();
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        var user = new User(
+                            reader["First_Name"].ToString(),
+                            reader["Last_Name"].ToString(),
+                            reader["Education"].ToString(),
+                            reader["Photo"].ToString());
+
+                        Users.Add(user);    
+                    }
+                }
+                connection.Close();
+            }
         }
     }
 }
