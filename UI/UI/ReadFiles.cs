@@ -11,12 +11,24 @@ namespace UI
     {
         List<string> lines = new List<string>();
 
-        public void readKeyFile(ref apiInfo apiInformation, string path)
+        public void readKeyFile(ref apiInfo apiInformation, string pathOneFile, string pathSecondFile = null)
         {
-            try
+            ReadingWithStream(pathOneFile);
+            if(pathSecondFile != null)
+                ReadingWithStream(pathSecondFile);
+            apiInformation.apiKey = lines[0];
+            apiInformation.apiLoc = lines[1];
+                        
+        }
+
+        private void ReadingWithStream(string path)
+        {
+
+                try
             {
-            using (FileStream fsSource = new FileStream(path, FileMode.Open, FileAccess.Read)){
-                    using (StreamReader sr = new StreamReader(fsSource))
+            using (FileStream fsSource = new FileStream(path, FileMode.Open, FileAccess.Read))
+                {
+                   using (StreamReader sr = new StreamReader(fsSource))
                  {
                         string line = string.Empty;
                         while ((line = sr.ReadLine()) != null)
@@ -26,11 +38,11 @@ namespace UI
                                 lines.Add(line);
                             }
                         }
-                        apiInformation.apiKey = lines[0];
-                        apiInformation.apiLoc = lines[1];
                         sr.Close();
-                    }
+                  }
+                    fsSource.Close();
                 }
+
             }
             catch (FileNotFoundException ioEx)
             {
