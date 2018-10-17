@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using System.Collections.Generic;
 
 namespace UI.UserControls
 {
@@ -38,8 +39,9 @@ namespace UI.UserControls
             string firstName = NameText.Text;
             string lastName = SurnameText.Text;
             string information = InformationText.Text;
+            string text = "photo_url";
 
-            if (errorcode == 0 || string.IsNullOrWhiteSpace(firstName) || string.IsNullOrWhiteSpace(lastName) || string.IsNullOrWhiteSpace(information))
+            if (string.IsNullOrWhiteSpace(firstName) || string.IsNullOrWhiteSpace(lastName) || string.IsNullOrWhiteSpace(information))
             {
                 ErrorHandling.Show_Inserting_Error();
             }
@@ -47,8 +49,10 @@ namespace UI.UserControls
             {
                 DatabaseInfo data = new DatabaseInfo();
                 var connection = data.GetConfigInfo();
-                User user = new User(firstName, lastName, information);
-                data.InsertRow(user, connection);
+                User user = new User(firstName, lastName, information, text);
+                data.InsertRow(user, connection);// Inesrt row to table
+                var Users = new List<User> { };
+                data.GetDataFromDatabase(Users, connection);// Read all information to Collection
                 NameText.Text = String.Empty;
                 SurnameText.Text = String.Empty;
                 InformationText.Text = String.Empty;
