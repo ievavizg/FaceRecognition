@@ -101,3 +101,17 @@ C:\Users\neriu\Desktop\New folder\FaceRecognition\UI\UI\obj\Debug\UI.csproj.Core
 C:\Users\neriu\Desktop\New folder\FaceRecognition\UI\UI\obj\Debug\UI.csproj.CopyComplete
 C:\Users\neriu\Desktop\New folder\FaceRecognition\UI\UI\obj\Debug\UI.exe
 C:\Users\neriu\Desktop\New folder\FaceRecognition\UI\UI\obj\Debug\UI.pdb
+C:\Users\neriu\Desktop\TOPAS2\FaceRecognition\UI\UI\bin\Debug\UI.exe.config
+C:\Users\neriu\Desktop\TOPAS2\FaceRecognition\UI\UI\bin\Debug\UI.exe
+C:\Users\neriu\Desktop\TOPAS2\FaceRecognition\UI\UI\bin\Debug\UI.pdb
+C:\Users\neriu\Desktop\TOPAS2\FaceRecognition\UI\UI\obj\Debug\UI.csprojAssemblyReference.cache
+C:\Users\neriu\Desktop\TOPAS2\FaceRecognition\UI\UI\obj\Debug\UI.MainWindow.resources
+C:\Users\neriu\Desktop\TOPAS2\FaceRecognition\UI\UI\obj\Debug\UI.Properties.Resources.resources
+C:\Users\neriu\Desktop\TOPAS2\FaceRecognition\UI\UI\obj\Debug\UI.UserControls.AddControl.resources
+C:\Users\neriu\Desktop\TOPAS2\FaceRecognition\UI\UI\obj\Debug\UI.UserControls.CameraControl.resources
+C:\Users\neriu\Desktop\TOPAS2\FaceRecognition\UI\UI\obj\Debug\UI.UserControls.HomeControl.resources
+C:\Users\neriu\Desktop\TOPAS2\FaceRecognition\UI\UI\obj\Debug\UI.csproj.GenerateResource.cache
+C:\Users\neriu\Desktop\TOPAS2\FaceRecognition\UI\UI\obj\Debug\UI.csproj.CoreCompileInputs.cache
+C:\Users\neriu\Desktop\TOPAS2\FaceRecognition\UI\UI\obj\Debug\UI.csproj.CopyComplete
+C:\Users\neriu\Desktop\TOPAS2\FaceRecognition\UI\UI\obj\Debug\UI.exe
+C:\Users\neriu\Desktop\TOPAS2\FaceRecognition\UI\UI\obj\Debug\UI.pdb

@@ -7,7 +7,8 @@ namespace UI.UserControls
 {
     public partial class AddControl : UserControl
     {
-        int errorcode;
+        int errorcode1 = 1;
+        int errorcode2 = 1;
         public AddControl()
         {
             InitializeComponent();
@@ -41,7 +42,7 @@ namespace UI.UserControls
             string information = InformationText.Text;
             string text = "photo_url";
 
-            if (string.IsNullOrWhiteSpace(firstName) || string.IsNullOrWhiteSpace(lastName) || string.IsNullOrWhiteSpace(information))
+            if (errorcode1 == 0 || errorcode2 == 0 || string.IsNullOrWhiteSpace(firstName) || string.IsNullOrWhiteSpace(lastName) || string.IsNullOrWhiteSpace(information))
             {
                 ErrorHandling.Show_Inserting_Error();
             }
@@ -56,6 +57,8 @@ namespace UI.UserControls
                 NameText.Text = String.Empty;
                 SurnameText.Text = String.Empty;
                 InformationText.Text = String.Empty;
+                icon1.Image = null;
+                icon2.Image = null;
             }
 
 
@@ -63,32 +66,31 @@ namespace UI.UserControls
 
         private void NameText_Leave(object sender, EventArgs e)
         {
-            if (RegexClass.Ragex_Check(NameText) == 1)
+            if (RegexClass.Ragex_Check(NameText) == 1 && !string.IsNullOrWhiteSpace(NameText.Text))
             {
                 icon1.Image = Properties.Resources.rsz_tick;
-                if (errorcode != 0)
-                    errorcode = 1;
+                errorcode1 = 1;
                 
             }
             else{
                 icon1.Image = Properties.Resources.cross;
-                errorcode = 0;
+                errorcode1 = 0;
             }
                   
         }
 
         private void SurnameText_Leave(object sender, EventArgs e)
         {
-            if (RegexClass.Ragex_Check(SurnameText) == 1)
+            
+            if (RegexClass.Ragex_Check(SurnameText) == 1 && !string.IsNullOrWhiteSpace(SurnameText.Text))
             {
                 icon2.Image = Properties.Resources.rsz_tick;
-                if (errorcode != 0)
-                    errorcode = 1;
+                errorcode2 = 1;
                     
             }
             else
             {
-                errorcode = 0;
+                errorcode2 = 0;
                 icon2.Image = Properties.Resources.cross;
             }
         }
