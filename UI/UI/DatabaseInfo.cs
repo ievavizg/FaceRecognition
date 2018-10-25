@@ -33,6 +33,30 @@ namespace UI
             return connection;
         }
 
+        // Get data with photo from database    GetDataFromDatabase(connection);
+        public void GetDataWithPhotoFromDatabase(List<UsersInfo> Users, SqlConnection connection)
+        {
+            //var user = new User
+            var commandString = "Select * From dbo.PeopleFaceTable";
+            using (SqlCommand command = new SqlCommand(commandString, connection))
+            {
+                connection.Open();
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        var user = new UsersInfo(
+                            reader["First_Name"].ToString(),
+                            reader["Last_Name"].ToString(),
+                            reader["Photo"].ToString());
+
+                        Users.Add(user);
+                    }
+                }
+                connection.Close();
+            }
+        }
+
 
         // Create table to database   CreateTable(connection);
         public void CreateTable(SqlConnection connection)
@@ -73,6 +97,7 @@ namespace UI
 
         }
 
+
         // Get data from database    GetDataFromDatabase(connection);
         public void GetDataFromDatabase(List<User> Users, SqlConnection connection)
         {
@@ -88,8 +113,7 @@ namespace UI
                         var user = new User(
                             reader["First_Name"].ToString(),
                             reader["Last_Name"].ToString(),
-                            reader["Education"].ToString(),
-                            reader["Photo"].ToString());
+                            reader["Education"].ToString());
 
                         Users.Add(user);    
                     }
@@ -97,5 +121,23 @@ namespace UI
                 connection.Close();
             }
         }
+
+
+
+        /*public IEnumerable<object> GroupJoinCollections(List<User> OrderedUsers, List<UsersInfo> UsersPhotos)
+        {
+            var JoinedUsers = from p in OrderedUsers
+                              join c in UsersPhotos
+                              on p.FirstName equals c.FirstName
+                              select new
+                              {
+                                  PersonName = p.FirstName,
+                                  PersonSurname = c.LastName,
+                                  PersonInfo = p.Information,
+                                  PersonPhoto = c.Text
+                              };
+            return JoinedUsers;
+
+        }*/
     }
 }
