@@ -51,16 +51,30 @@ namespace UI.UserControls
             {
                 DatabaseInfo data = new DatabaseInfo();
                 var connection = data.GetConfigInfo();
-                User user = new User(firstName, lastName, information, text);
-                data.InsertRow(user, connection);// Inesrt row to table
+                User user = new User(firstName, lastName, information);
+                data.InsertRow(user, connection);// Inesrt row to table                
                 var Users = new List<User> { };
-                data.GetDataFromDatabase(Users, connection);// Read all information to Collection
-                var OrderedUsers = Users.OrderBy(p => p.FirstName);// Linq ordering by name ascending               
+                data.GetDataFromDatabase(Users, connection);// Read information to Collection
+                UsersInfo userPhoto = new UsersInfo(firstName, lastName, text);
+                var UsersPhotos = new List<UsersInfo> { };
+                data.GetDataFromDatabase(Users, connection);// Read photo information to Collection 
+                var OrderedUsers = Users.OrderBy(p => p.FirstName);// Linq ordering by name ascending
                 NameText.Text = String.Empty;
                 SurnameText.Text = String.Empty;
                 InformationText.Text = String.Empty;
                 icon1.Image = null;
                 icon2.Image = null;
+                //var JoinedUsers = data.GroupJoinCollections(Users, UsersPhotos);
+                var JoinedUsers = from p in OrderedUsers
+                                  join c in UsersPhotos
+                                  on p.FirstName equals c.FirstName
+                                  select new
+                                  {
+                                      PersonName = p.FirstName,
+                                      PersonSurname = c.LastName,
+                                      PersonInfo = p.Information,
+                                      PersonPhoto = c.Text
+                                  };
             }
 
 
