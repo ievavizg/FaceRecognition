@@ -25,7 +25,7 @@ namespace UI
         {
             String file = @"..\Debug\key.txt";
             String path = Path.GetFullPath(file);
-            nReader.readKeyFile(ref apiInformation, path);
+            nReader.ReadKeyFile(ref apiInformation, path);
         }
     }
 }

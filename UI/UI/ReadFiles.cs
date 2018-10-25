@@ -11,7 +11,7 @@ namespace UI
     {
         List<string> lines = new List<string>();
 
-        public void readKeyFile(ref apiInfo apiInformation, string pathOneFile, string pathSecondFile = null)
+        public void ReadKeyFile(ref apiInfo apiInformation, string pathOneFile, string pathSecondFile = null)
         {
             ReadingWithStream(pathOneFile);
             if(pathSecondFile != null)
