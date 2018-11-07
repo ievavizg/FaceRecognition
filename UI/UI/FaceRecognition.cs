@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using Microsoft.ProjectOxford.Face;
-//using Microsoft.ProjectOxford.Common;
 using Microsoft.ProjectOxford.Face.Contract;
 using System.Drawing;
 using System.Reflection;
