@@ -10,6 +10,7 @@ namespace UI.UserControls
     {
         int errorcode1 = 1;
         int errorcode2 = 1;
+
         public AddControl()
         {
             InitializeComponent();
@@ -26,13 +27,21 @@ namespace UI.UserControls
                 {
                     imageLocation = dialog.FileName;
                     ImageView.ImageLocation = imageLocation;
+                       
+                    //recognizing face and giving small description
+                    FaceRecognition recognition = new FaceRecognition();
+                    recognition.getInformation();
+                    recognition.GetNewImage(imageLocation,ImageView);
                 }
+
+
             }
             catch (Exception)
             {
                 ErrorHandling.Show_Uploading_Error();
             }
         }
+
 
         //Add button action
         private void AddButton_Click(object sender, EventArgs e)
@@ -76,6 +85,8 @@ namespace UI.UserControls
                                       PersonPhoto = c.Text
                                   };
             }
+
+
 
 
         }

@@ -17,8 +17,7 @@ namespace UI
             if(pathSecondFile != null)
                 ReadingWithStream(pathSecondFile);
                 apiInformation.apiKey = lines[0];
-                apiInformation.apiLoc = lines[1];
-                        
+                apiInformation.apiLoc = lines[1];        
         }
 
         private void ReadingWithStream(string path)
@@ -38,9 +37,7 @@ namespace UI
                                 lines.Add(line);
                             }
                         }
-                        sr.Close();
                   }
-                    fsSource.Close();
                 }
 
             }
