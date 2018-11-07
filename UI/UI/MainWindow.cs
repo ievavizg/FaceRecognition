@@ -74,5 +74,10 @@ namespace UI
             cameraControl1.CloseCamera();
             
         }
+
+        private void addControl1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
