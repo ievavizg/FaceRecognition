@@ -14,8 +14,6 @@ namespace UI
         [STAThread]
         static void Main()
         {
-            FaceRecognition faces = new FaceRecognition();
-            faces.getInformation();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainWindow());

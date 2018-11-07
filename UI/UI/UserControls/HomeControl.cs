@@ -28,6 +28,12 @@ namespace UI.UserControls
                 {
                     imageLocation = dialog.FileName;
                     PictureBox.ImageLocation = imageLocation;
+
+                        
+                    //recognizing face and giving small description
+                    FaceRecognition recognition = new FaceRecognition();
+                    recognition.getInformation();
+                    recognition.GetNewImage(imageLocation,PictureBox);
                 }
             }
             catch (Exception)
