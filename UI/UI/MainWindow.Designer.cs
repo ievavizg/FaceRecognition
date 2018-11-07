@@ -133,7 +133,6 @@
             this.addControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.addControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.addControl1.Location = new System.Drawing.Point(0, 0);
-            this.addControl1.Margin = new System.Windows.Forms.Padding(4);
             this.addControl1.Name = "addControl1";
             this.addControl1.Size = new System.Drawing.Size(804, 594);
             this.addControl1.TabIndex = 2;
@@ -149,20 +148,19 @@
             this.cameraControl1.Size = new System.Drawing.Size(804, 594);
             this.cameraControl1.TabIndex = 1;
             this.cameraControl1.Visible = false;
-            this.cameraControl1.Load += new System.EventHandler(this.cameraControl1_Load);
             // 
             // homeControl1
             // 
             this.homeControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.homeControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.homeControl1.Location = new System.Drawing.Point(0, 0);
-            this.homeControl1.Margin = new System.Windows.Forms.Padding(21, 19, 21, 19);
+            this.homeControl1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.homeControl1.Name = "homeControl1";
             this.homeControl1.Size = new System.Drawing.Size(804, 594);
             this.homeControl1.TabIndex = 0;
-            this.homeControl1.Visible = false;
+
             // 
-            // Form1
+            // MainWindow
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
@@ -170,7 +168,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.Name = "Form1";
+            this.Name = "MainWindow";
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -190,8 +188,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
         private UserControls.HomeControl homeControl1;
-        private UserControls.CameraControl cameraControl1;
         private UserControls.AddControl addControl1;
+        private UserControls.CameraControl cameraControl1;
     }
 }
 
