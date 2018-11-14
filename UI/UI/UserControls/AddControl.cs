@@ -12,6 +12,7 @@ namespace UI.UserControls
 {
     public partial class AddControl : UserControl
     {
+        
         int errorcode1 = 1;
         int errorcode2 = 1;
 

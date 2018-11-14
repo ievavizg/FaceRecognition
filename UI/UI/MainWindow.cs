@@ -7,14 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using UI.ServiceReference1;
 namespace UI
 {
     public partial class MainWindow : Form
     {
+        private MyWebServiceSoapClient ws = new MyWebServiceSoapClient();
         public MainWindow()
         {
-            
+           
             InitializeComponent();
         }
 
