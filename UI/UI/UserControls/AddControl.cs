@@ -7,6 +7,7 @@ using System.Net;
 using System.Collections.Specialized;
 using System.IO;
 using System.Xml.Linq;
+using System.Data.SqlClient;
 
 namespace UI.UserControls
 {
@@ -15,11 +16,13 @@ namespace UI.UserControls
         
         int errorcode1 = 1;
         int errorcode2 = 1;
-
+        
         public AddControl()
         {
             InitializeComponent();
         }
+       Lazy<DatabaseInfo> LazyData = new Lazy<DatabaseInfo>();
+
 
         private void UploadPhotoButton_Click(object sender, EventArgs e)
         {
@@ -42,7 +45,7 @@ namespace UI.UserControls
             }
         }
 
-
+        
         //Add button action
         private void AddButton_Click(object sender, EventArgs e)
         {
@@ -71,32 +74,37 @@ namespace UI.UserControls
             }
             else
             {
-                DatabaseInfo data = new DatabaseInfo();
+
+                DatabaseInfo data = LazyData.Value;
                 var connection = data.GetConfigInfo();
                 User user = new User(firstName, lastName, information);
                 data.InsertRow(user, connection);// Inesrt row to table                
-                var Users = new List<User> { };
+                List<User> Users = new List<User> { };
                 data.GetDataFromDatabase(Users, connection);// Read information to Collection
                 UsersInfo userPhoto = new UsersInfo(firstName, lastName, text);
                 var UsersPhotos = new List<UsersInfo> { };
                 data.GetDataFromDatabase(Users, connection);// Read photo information to Collection 
                 var OrderedUsers = Users.OrderBy(p => p.FirstName);// Linq ordering by name ascending
+                //var JoinedUsers = data.GroupJoinCollections(Users, UsersPhotos);
+                    var JoinedUsers = from p in OrderedUsers
+                                      join c in UsersPhotos
+                                      on p.FirstName equals c.FirstName
+                                      select new
+                                      {
+                                          PersonName = p.FirstName,
+                                          PersonSurname = c.LastName,
+                                          PersonInfo = p.Information,
+                                          PersonPhoto = c.Text
+                                      };
+            
+                    
                 NameText.Text = String.Empty;
                 SurnameText.Text = String.Empty;
                 InformationText.Text = String.Empty;
                 icon1.Image = null;
                 icon2.Image = null;
-                //var JoinedUsers = data.GroupJoinCollections(Users, UsersPhotos);
-                var JoinedUsers = from p in OrderedUsers
-                                  join c in UsersPhotos
-                                  on p.FirstName equals c.FirstName
-                                  select new
-                                  {
-                                      PersonName = p.FirstName,
-                                      PersonSurname = c.LastName,
-                                      PersonInfo = p.Information,
-                                      PersonPhoto = c.Text
-                                  };
+                
+               
             }
 
 
@@ -143,5 +151,7 @@ namespace UI.UserControls
                 icon2.Image = null;
             }
         }
+        
+       
     }
 }
