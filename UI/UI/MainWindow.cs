@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UI.Properties;
 
 namespace UI
 {
@@ -26,6 +27,7 @@ namespace UI
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            BackColor = Settings.Default.MyColor;
 
         }
 
@@ -77,6 +79,20 @@ namespace UI
         }
 
         private void addControl1_Load(object sender, EventArgs e)
+        {
+  
+        }
+
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            colorDialog1.ShowDialog();
+            Settings.Default.MyColor = colorDialog1.Color;
+            Settings.Default.Save();
+            BackColor = Settings.Default.MyColor;
+        }
+
+        private void addControl1_Load_1(object sender, EventArgs e)
         {
 
         }
