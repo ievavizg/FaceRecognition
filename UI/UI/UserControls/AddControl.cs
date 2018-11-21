@@ -51,13 +51,6 @@ namespace UI.UserControls
             string lastName = SurnameText.Text;
             string information = InformationText.Text;
             string text = "photo_url";
-
-
-
-
-
-
-
             using (var w = new WebClient())
             {
                 string clientID = "d4a165a802843b0";
@@ -71,16 +64,6 @@ namespace UI.UserControls
                 var xx= XDocument.Load(new MemoryStream(response)).ToString();
                 MessageBox.Show(xx);
             }
-
-
-
-
-
-
-
-
-
-
 
             if (errorcode1 == 0 || errorcode2 == 0 || string.IsNullOrWhiteSpace(firstName) || string.IsNullOrWhiteSpace(lastName) || string.IsNullOrWhiteSpace(information))
             {
