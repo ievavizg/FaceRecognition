@@ -19,18 +19,22 @@ namespace UI
         //Getting information from app.config
         public SqlConnection GetConfigInfo()
         {
-            var connection = new SqlConnection();
+            var Connection = new SqlConnection();
             ConnectionStringSettingsCollection settings = ConfigurationManager.ConnectionStrings;
             if (settings != null)
             {
+               
                 foreach (ConnectionStringSettings cs in settings)
                 {
                     var name = cs.Name;
                     var provider = cs.ProviderName;
-                    connection = new SqlConnection(cs.ConnectionString);
+                    Connection = new SqlConnection(cs.ConnectionString);
                 }
+                
             }
-            return connection;
+           return Connection;
+               
+            
         }
 
         // Get data with photo from database    GetDataFromDatabase(connection);
@@ -121,6 +125,7 @@ namespace UI
                 connection.Close();
             }
         }
+        
 
 
 
