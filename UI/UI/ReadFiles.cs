@@ -23,7 +23,7 @@ namespace UI
         private void ReadingWithStream(string path)
         {
 
-                try
+            try
             {
             using (FileStream fsSource = new FileStream(path, FileMode.Open, FileAccess.Read))
                 {
