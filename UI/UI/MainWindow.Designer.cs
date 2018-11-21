@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -38,12 +39,14 @@
             this.addControl1 = new UI.UserControls.AddControl();
             this.cameraControl1 = new UI.UserControls.CameraControl();
             this.homeControl1 = new UI.UserControls.HomeControl();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button2);
@@ -51,9 +54,21 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(228, 594);
+            this.panel1.Size = new System.Drawing.Size(228, 582);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // button4
+            // 
+            this.button4.Font = new System.Drawing.Font("Century Gothic", 3F);
+            this.button4.ImageKey = "(none)";
+            this.button4.Location = new System.Drawing.Point(12, 12);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(31, 27);
+            this.button4.TabIndex = 5;
+            this.button4.Text = "Color";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // label1
             // 
@@ -62,7 +77,7 @@
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
             this.label1.Location = new System.Drawing.Point(23, 27);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(199, 80);
+            this.label1.Size = new System.Drawing.Size(166, 66);
             this.label1.TabIndex = 4;
             this.label1.Text = "Face\r\nrecognition";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -124,7 +139,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(228, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(804, 594);
+            this.panel2.Size = new System.Drawing.Size(837, 582);
             this.panel2.TabIndex = 1;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -134,9 +149,10 @@
             this.addControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.addControl1.Location = new System.Drawing.Point(0, 0);
             this.addControl1.Name = "addControl1";
-            this.addControl1.Size = new System.Drawing.Size(804, 594);
+            this.addControl1.Size = new System.Drawing.Size(837, 582);
             this.addControl1.TabIndex = 2;
             this.addControl1.Visible = false;
+            this.addControl1.Load += new System.EventHandler(this.addControl1_Load_1);
             // 
             // cameraControl1
             // 
@@ -145,7 +161,7 @@
             this.cameraControl1.Location = new System.Drawing.Point(0, 0);
             this.cameraControl1.Name = "cameraControl1";
             this.cameraControl1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.cameraControl1.Size = new System.Drawing.Size(804, 594);
+            this.cameraControl1.Size = new System.Drawing.Size(837, 582);
             this.cameraControl1.TabIndex = 1;
             this.cameraControl1.Visible = false;
             // 
@@ -156,15 +172,14 @@
             this.homeControl1.Location = new System.Drawing.Point(0, 0);
             this.homeControl1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.homeControl1.Name = "homeControl1";
-            this.homeControl1.Size = new System.Drawing.Size(804, 594);
+            this.homeControl1.Size = new System.Drawing.Size(837, 582);
             this.homeControl1.TabIndex = 0;
-
             // 
             // MainWindow
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.ClientSize = new System.Drawing.Size(1032, 594);
+            this.ClientSize = new System.Drawing.Size(1065, 582);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
@@ -190,6 +205,8 @@
         private UserControls.HomeControl homeControl1;
         private UserControls.AddControl addControl1;
         private UserControls.CameraControl cameraControl1;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.ColorDialog colorDialog1;
     }
 }
 
