@@ -8,7 +8,7 @@ using System.Windows.Controls;
 
 namespace UI
 {
-    public class User : IEnumerable // Only name, surname and information
+    public class User 
     {
         public User(string firstName, string lastName, string information)
         {
@@ -20,9 +20,5 @@ namespace UI
         public string LastName { get; set; }
         public string Information { get; set; }
 
-        public IEnumerator GetEnumerator()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

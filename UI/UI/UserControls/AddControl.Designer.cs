@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.icon2 = new System.Windows.Forms.PictureBox();
+            this.icon1 = new System.Windows.Forms.PictureBox();
             this.InformationText = new System.Windows.Forms.TextBox();
             this.InformationLabel = new System.Windows.Forms.Label();
             this.SurnameText = new System.Windows.Forms.TextBox();
@@ -40,14 +42,13 @@
             this.AddButton = new System.Windows.Forms.Button();
             this.UploadPhotoButton = new System.Windows.Forms.Button();
             this.ImageView = new System.Windows.Forms.PictureBox();
-            this.icon1 = new System.Windows.Forms.PictureBox();
-            this.icon2 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.icon2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.icon1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImageView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.icon1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.icon2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -66,6 +67,24 @@
             this.panel1.Size = new System.Drawing.Size(309, 594);
             this.panel1.TabIndex = 0;
             // 
+            // icon2
+            // 
+            this.icon2.Location = new System.Drawing.Point(188, 192);
+            this.icon2.Name = "icon2";
+            this.icon2.Size = new System.Drawing.Size(34, 31);
+            this.icon2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.icon2.TabIndex = 7;
+            this.icon2.TabStop = false;
+            // 
+            // icon1
+            // 
+            this.icon1.Location = new System.Drawing.Point(188, 86);
+            this.icon1.Name = "icon1";
+            this.icon1.Size = new System.Drawing.Size(34, 31);
+            this.icon1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.icon1.TabIndex = 6;
+            this.icon1.TabStop = false;
+            // 
             // InformationText
             // 
             this.InformationText.Location = new System.Drawing.Point(33, 334);
@@ -73,6 +92,7 @@
             this.InformationText.Name = "InformationText";
             this.InformationText.Size = new System.Drawing.Size(240, 222);
             this.InformationText.TabIndex = 5;
+            this.InformationText.TextChanged += new System.EventHandler(this.InformationText_TextChanged);
             // 
             // InformationLabel
             // 
@@ -81,7 +101,7 @@
             this.InformationLabel.ForeColor = System.Drawing.SystemColors.Control;
             this.InformationLabel.Location = new System.Drawing.Point(27, 273);
             this.InformationLabel.Name = "InformationLabel";
-            this.InformationLabel.Size = new System.Drawing.Size(170, 34);
+            this.InformationLabel.Size = new System.Drawing.Size(135, 25);
             this.InformationLabel.TabIndex = 4;
             this.InformationLabel.Text = "Information";
             // 
@@ -92,7 +112,7 @@
             this.SurnameText.ForeColor = System.Drawing.SystemColors.Control;
             this.SurnameText.Location = new System.Drawing.Point(33, 191);
             this.SurnameText.Name = "SurnameText";
-            this.SurnameText.Size = new System.Drawing.Size(137, 32);
+            this.SurnameText.Size = new System.Drawing.Size(137, 27);
             this.SurnameText.TabIndex = 3;
             this.SurnameText.Leave += new System.EventHandler(this.SurnameText_Leave);
             // 
@@ -103,7 +123,7 @@
             this.SurnameLabel.ForeColor = System.Drawing.SystemColors.Control;
             this.SurnameLabel.Location = new System.Drawing.Point(27, 154);
             this.SurnameLabel.Name = "SurnameLabel";
-            this.SurnameLabel.Size = new System.Drawing.Size(134, 34);
+            this.SurnameLabel.Size = new System.Drawing.Size(107, 25);
             this.SurnameLabel.TabIndex = 2;
             this.SurnameLabel.Text = "Surname";
             // 
@@ -114,7 +134,7 @@
             this.NameLabel.ForeColor = System.Drawing.SystemColors.Control;
             this.NameLabel.Location = new System.Drawing.Point(27, 48);
             this.NameLabel.Name = "NameLabel";
-            this.NameLabel.Size = new System.Drawing.Size(99, 34);
+            this.NameLabel.Size = new System.Drawing.Size(79, 25);
             this.NameLabel.TabIndex = 1;
             this.NameLabel.Text = "Name";
             // 
@@ -125,7 +145,7 @@
             this.NameText.ForeColor = System.Drawing.SystemColors.Control;
             this.NameText.Location = new System.Drawing.Point(33, 85);
             this.NameText.Name = "NameText";
-            this.NameText.Size = new System.Drawing.Size(137, 32);
+            this.NameText.Size = new System.Drawing.Size(137, 27);
             this.NameText.TabIndex = 0;
             this.NameText.Leave += new System.EventHandler(this.NameText_Leave);
             // 
@@ -141,6 +161,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.button1);
             this.panel3.Controls.Add(this.AddButton);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(0, 443);
@@ -177,23 +198,15 @@
             this.ImageView.TabIndex = 0;
             this.ImageView.TabStop = false;
             // 
-            // icon1
+            // button1
             // 
-            this.icon1.Location = new System.Drawing.Point(188, 86);
-            this.icon1.Name = "icon1";
-            this.icon1.Size = new System.Drawing.Size(34, 31);
-            this.icon1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.icon1.TabIndex = 6;
-            this.icon1.TabStop = false;
-            // 
-            // icon2
-            // 
-            this.icon2.Location = new System.Drawing.Point(188, 192);
-            this.icon2.Name = "icon2";
-            this.icon2.Size = new System.Drawing.Size(34, 31);
-            this.icon2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.icon2.TabIndex = 7;
-            this.icon2.TabStop = false;
+            this.button1.Location = new System.Drawing.Point(390, 52);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Sysdate";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.sysdate);
             // 
             // AddControl
             // 
@@ -206,11 +219,11 @@
             this.VisibleChanged += new System.EventHandler(this.AddControl_VisibleChanged);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.icon2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.icon1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ImageView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.icon1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.icon2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -231,5 +244,6 @@
         private System.Windows.Forms.TextBox InformationText;
         private System.Windows.Forms.PictureBox icon2;
         private System.Windows.Forms.PictureBox icon1;
+        private System.Windows.Forms.Button button1;
     }
 }

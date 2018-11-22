@@ -12,7 +12,7 @@ namespace UI.UserControls
 {
     public partial class AddControl : UserControl
     {
-        
+
         int errorcode1 = 1;
         int errorcode2 = 1;
 
@@ -61,8 +61,8 @@ namespace UI.UserControls
                 };
 
                 byte[] response = w.UploadValues("https://api.imgur.com/3/upload.xml", values);
-                var xx= XDocument.Load(new MemoryStream(response)).ToString();
-                MessageBox.Show(xx);
+                var xx = XDocument.Load(new MemoryStream(response)).ToString();
+                //MessageBox.Show(xx);
             }
 
             if (errorcode1 == 0 || errorcode2 == 0 || string.IsNullOrWhiteSpace(firstName) || string.IsNullOrWhiteSpace(lastName) || string.IsNullOrWhiteSpace(information))
@@ -74,13 +74,22 @@ namespace UI.UserControls
                 DatabaseInfo data = new DatabaseInfo();
                 var connection = data.GetConfigInfo();
                 User user = new User(firstName, lastName, information);
-                data.InsertRow(user, connection);// Inesrt row to table                
+
+                WebServiceForFaceRecognition.WebService service = new WebServiceForFaceRecognition.WebService();
+
+                //service.InsertRow(user, connection);
+                data.InsertRow(user, connection);// Inesrt row to table   
+
                 var Users = new List<User> { };
+
+                //service.GetDataFromDatabase(Users, connection);
                 data.GetDataFromDatabase(Users, connection);// Read information to Collection
+
                 UsersInfo userPhoto = new UsersInfo(firstName, lastName, text);
                 var UsersPhotos = new List<UsersInfo> { };
                 data.GetDataFromDatabase(Users, connection);// Read photo information to Collection 
                 var OrderedUsers = Users.OrderBy(p => p.FirstName);// Linq ordering by name ascending
+
                 NameText.Text = String.Empty;
                 SurnameText.Text = String.Empty;
                 InformationText.Text = String.Empty;
@@ -99,9 +108,6 @@ namespace UI.UserControls
                                   };
             }
 
-
-
-
         }
 
         private void NameText_Leave(object sender, EventArgs e)
@@ -110,23 +116,23 @@ namespace UI.UserControls
             {
                 icon1.Image = Properties.Resources.rsz_tick;
                 errorcode1 = 1;
-                
+
             }
-            else{
+            else {
                 icon1.Image = Properties.Resources.cross;
                 errorcode1 = 0;
             }
-                  
+
         }
 
         private void SurnameText_Leave(object sender, EventArgs e)
         {
-            
+
             if (RegexClass.Ragex_Check(SurnameText) == 1 && !string.IsNullOrWhiteSpace(SurnameText.Text))
             {
                 icon2.Image = Properties.Resources.rsz_tick;
                 errorcode2 = 1;
-                    
+
             }
             else
             {
@@ -137,11 +143,18 @@ namespace UI.UserControls
 
         private void AddControl_VisibleChanged(object sender, EventArgs e)
         {
-            if(!this.Visible)
+            if (!this.Visible)
             {
                 icon1.Image = null;
                 icon2.Image = null;
             }
         }
+
+        private void InformationText_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }
