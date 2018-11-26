@@ -8,6 +8,8 @@ using System.Collections.Specialized;
 using System.IO;
 using System.Xml.Linq;
 using System.Data.SqlClient;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace UI.UserControls
 {
@@ -27,6 +29,13 @@ namespace UI.UserControls
         private void UploadPhotoButton_Click(object sender, EventArgs e)
         {
             string imageLocation = "";
+            Thread thread = new Thread(Method);
+            thread.Start();
+            thread.Join();
+
+            Task MyTask = Task.Run(() => Method());
+            MyTask.Wait();
+
             try
             {
                 OpenFileDialog dialog = new OpenFileDialog();
@@ -36,13 +45,16 @@ namespace UI.UserControls
                     imageLocation = dialog.FileName;
                     ImageView.ImageLocation = imageLocation;
                 }
-
-
             }
             catch (Exception)
             {
                 ErrorHandling.Show_Uploading_Error();
             }
+        }
+
+        public void Method()
+        {
+
         }
 
         
@@ -65,7 +77,7 @@ namespace UI.UserControls
 
                 byte[] response = w.UploadValues("https://api.imgur.com/3/upload.xml", values);
                 var xx= XDocument.Load(new MemoryStream(response)).ToString();
-                MessageBox.Show(xx);
+               // MessageBox.Show(xx);
             }
 
             if (errorcode1 == 0 || errorcode2 == 0 || string.IsNullOrWhiteSpace(firstName) || string.IsNullOrWhiteSpace(lastName) || string.IsNullOrWhiteSpace(information))
@@ -76,11 +88,17 @@ namespace UI.UserControls
             {
 
                 DatabaseInfo data = LazyData.Value;
+                //data.Myevent += delegate (object ) { }
                 var connection = data.GetConfigInfo();
                 User user = new User(firstName, lastName, information);
-                data.InsertRow(user, connection);// Inesrt row to table                
-                List<User> Users = new List<User> { };
-                data.GetDataFromDatabase(Users, connection);// Read information to Collection
+
+
+                WebService.WebService service = new WebService.WebService();
+                //service.InsertRow(user, connection);
+                data.InsertRow(user, connection);// Inesrt row to table   
+                var Users = new List<User> { };
+                //service.GetDataFromDatabase(Users, connection);
+                data.GetDataFromDatabase(Users, connection);// Read information to Collectionion
                 UsersInfo userPhoto = new UsersInfo(firstName, lastName, text);
                 var UsersPhotos = new List<UsersInfo> { };
                 data.GetDataFromDatabase(Users, connection);// Read photo information to Collection 
@@ -101,6 +119,7 @@ namespace UI.UserControls
                 NameText.Text = String.Empty;
                 SurnameText.Text = String.Empty;
                 InformationText.Text = String.Empty;
+                ImageView.Image = null;
                 icon1.Image = null;
                 icon2.Image = null;
                 

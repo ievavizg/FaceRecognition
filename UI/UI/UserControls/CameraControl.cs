@@ -21,9 +21,15 @@ namespace UI.UserControls
             
             InitializeComponent();
             GetInfo();
-            cam.OnFrameArrived += MyCamera_OnFrameArrived;
+            cam.OnFrameArrived += delegate(object source, FrameArrivedEventArgs e) {
+                Image img = e.GetFrame();
+                pictureBox1.Image = img;
+            };
+            
+           
 
         }
+        
         private void GetInfo()
         {
             var cameraDevices = cam.GetCameraSources();
@@ -40,11 +46,7 @@ namespace UI.UserControls
             cmdCameraResolutions.SelectedIndex = 0;
         }
         
-        private void MyCamera_OnFrameArrived(object source, FrameArrivedEventArgs e)
-        {
-            Image img = e.GetFrame();
-            pictureBox1.Image = img;
-        }
+        
         private void cmdCameraResolutions_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             cam.Start(cmdCameraResolutions.SelectedIndex);
@@ -77,5 +79,9 @@ namespace UI.UserControls
         {
             cam.Stop();
         }
+
+
+
+        
     }
 }

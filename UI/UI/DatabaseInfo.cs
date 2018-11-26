@@ -16,16 +16,24 @@ namespace UI
 {
     class DatabaseInfo
     {
+        public event EventHandler Myevent;
+
         //Getting information from app.config
         public SqlConnection GetConfigInfo()
         {
+            
+        
+
+
             var Connection = new SqlConnection();
             ConnectionStringSettingsCollection settings = ConfigurationManager.ConnectionStrings;
             if (settings != null)
             {
+                Myevent(this,new EventArgs());
                
                 foreach (ConnectionStringSettings cs in settings)
                 {
+
                     var name = cs.Name;
                     var provider = cs.ProviderName;
                     Connection = new SqlConnection(cs.ConnectionString);
@@ -36,6 +44,8 @@ namespace UI
                
             
         }
+
+    
 
         // Get data with photo from database    GetDataFromDatabase(connection);
         public void GetDataWithPhotoFromDatabase(List<UsersInfo> Users, SqlConnection connection)
