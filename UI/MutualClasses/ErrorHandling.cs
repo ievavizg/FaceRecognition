@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace UI
+namespace MutualClasses
 {
     enum Errors { Connection_Error, Inserting_Error, Uploading_Error, Incorrect_Information_Error };
-    class ErrorHandling
+    public class ErrorHandling
     {
         public static void PrintError(Exception e)
         {

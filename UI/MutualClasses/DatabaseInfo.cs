@@ -1,20 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Windows.Forms;
 using System.Configuration;
-using System.Data.Common;
 using System.Data.SqlClient;
-using System.Data.OleDb;
 
-namespace UI
+namespace MutualClasses
 {
-    class DatabaseInfo
+    public class DatabaseInfo
     {
         //Getting information from app.config
         public SqlConnection GetConfigInfo()
@@ -75,7 +66,6 @@ namespace UI
             }
         }
 
-
         // Insert row to table   InsertRow(user, connection);
         public void InsertRow(User user, SqlConnection connection)
         {
@@ -115,29 +105,11 @@ namespace UI
                             reader["Last_Name"].ToString(),
                             reader["Education"].ToString());
 
-                        Users.Add(user);    
+                        Users.Add(user);
                     }
                 }
                 connection.Close();
             }
         }
-
-
-
-        /*public IEnumerable<object> GroupJoinCollections(List<User> OrderedUsers, List<UsersInfo> UsersPhotos)
-        {
-            var JoinedUsers = from p in OrderedUsers
-                              join c in UsersPhotos
-                              on p.FirstName equals c.FirstName
-                              select new
-                              {
-                                  PersonName = p.FirstName,
-                                  PersonSurname = c.LastName,
-                                  PersonInfo = p.Information,
-                                  PersonPhoto = c.Text
-                              };
-            return JoinedUsers;
-
-        }*/
-    }
+        }
 }

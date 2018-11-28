@@ -7,6 +7,7 @@ using System.Net;
 using System.Collections.Specialized;
 using System.IO;
 using System.Xml.Linq;
+using MutualClasses;
 
 namespace UI.UserControls
 {
@@ -33,8 +34,7 @@ namespace UI.UserControls
                     imageLocation = dialog.FileName;
                     ImageView.ImageLocation = imageLocation;
                 }
-
-
+                
             }
             catch (Exception)
             {
@@ -44,7 +44,7 @@ namespace UI.UserControls
 
 
         //Add button action
-        private void AddButton_Click(object sender, EventArgs e)
+        public void AddButton_Click(object sender, EventArgs e)
         {
 
             string firstName = NameText.Text;
@@ -71,7 +71,9 @@ namespace UI.UserControls
             }
             else
             {
-                DatabaseInfo data = new DatabaseInfo();
+             //   MutualClasses.
+                
+                var data = new DatabaseInfo();
                 var connection = data.GetConfigInfo();
                 User user = new User(firstName, lastName, information);
                 data.InsertRow(user, connection);// Inesrt row to table                
