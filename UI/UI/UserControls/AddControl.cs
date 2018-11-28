@@ -8,6 +8,7 @@ using System.Collections.Specialized;
 using System.IO;
 using System.Xml.Linq;
 using MutualClasses;
+using WebServer;
 
 namespace UI.UserControls
 {
@@ -71,12 +72,16 @@ namespace UI.UserControls
             }
             else
             {
-             //   MutualClasses.
-                
-                var data = new DatabaseInfo();
-                var connection = data.GetConfigInfo();
+
                 User user = new User(firstName, lastName, information);
-                data.InsertRow(user, connection);// Inesrt row to table                
+                WebServer.WebService service = new WebServer.WebService();
+                service.Inserting(user);
+                NameText.Text = String.Empty;
+                SurnameText.Text = String.Empty;
+                InformationText.Text = String.Empty;
+                icon1.Image = null;
+                icon2.Image = null;
+                /*
                 var Users = new List<User> { };
                 data.GetDataFromDatabase(Users, connection);// Read information to Collection
                 UsersInfo userPhoto = new UsersInfo(firstName, lastName, text);
@@ -98,7 +103,7 @@ namespace UI.UserControls
                                       PersonSurname = c.LastName,
                                       PersonInfo = p.Information,
                                       PersonPhoto = c.Text
-                                  };
+                                  };*/
             }
 
 

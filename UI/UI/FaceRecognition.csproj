@@ -135,6 +135,7 @@
       <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.2\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
     </Reference>
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -226,6 +227,10 @@
     <ProjectReference Include="..\MutualClasses\MutualClasses.csproj">
       <Project>{adef6543-c5e7-4c68-a203-20ba9d7ad83a}</Project>
       <Name>MutualClasses</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebServer\WebServer.csproj">
+      <Project>{54dd91cf-ed48-48be-9f76-291bbf6082e3}</Project>
+      <Name>WebServer</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
