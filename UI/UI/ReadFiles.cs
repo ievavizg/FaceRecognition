@@ -17,8 +17,8 @@ namespace UI
             ReadingWithStream(pathOneFile);
             if(pathSecondFile != null)
                 ReadingWithStream(pathSecondFile);
-                apiInformation.apiKey = lines[0];
-                apiInformation.apiLoc = lines[1];        
+            apiInformation.apiKey = lines[0];
+            apiInformation.apiLoc = lines[1];        
         }
 
         private void ReadingWithStream(string path)
