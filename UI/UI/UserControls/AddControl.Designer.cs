@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.icon2 = new System.Windows.Forms.PictureBox();
-            this.icon1 = new System.Windows.Forms.PictureBox();
             this.InformationText = new System.Windows.Forms.TextBox();
             this.InformationLabel = new System.Windows.Forms.Label();
             this.SurnameText = new System.Windows.Forms.TextBox();
@@ -42,12 +40,14 @@
             this.AddButton = new System.Windows.Forms.Button();
             this.UploadPhotoButton = new System.Windows.Forms.Button();
             this.ImageView = new System.Windows.Forms.PictureBox();
+            this.icon1 = new System.Windows.Forms.PictureBox();
+            this.icon2 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.icon2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.icon1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImageView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.icon1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.icon2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -65,24 +65,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(309, 594);
             this.panel1.TabIndex = 0;
-            // 
-            // icon2
-            // 
-            this.icon2.Location = new System.Drawing.Point(188, 192);
-            this.icon2.Name = "icon2";
-            this.icon2.Size = new System.Drawing.Size(34, 31);
-            this.icon2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.icon2.TabIndex = 7;
-            this.icon2.TabStop = false;
-            // 
-            // icon1
-            // 
-            this.icon1.Location = new System.Drawing.Point(188, 86);
-            this.icon1.Name = "icon1";
-            this.icon1.Size = new System.Drawing.Size(34, 31);
-            this.icon1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.icon1.TabIndex = 6;
-            this.icon1.TabStop = false;
             // 
             // InformationText
             // 
@@ -195,6 +177,24 @@
             this.ImageView.TabIndex = 0;
             this.ImageView.TabStop = false;
             // 
+            // icon1
+            // 
+            this.icon1.Location = new System.Drawing.Point(188, 86);
+            this.icon1.Name = "icon1";
+            this.icon1.Size = new System.Drawing.Size(34, 31);
+            this.icon1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.icon1.TabIndex = 6;
+            this.icon1.TabStop = false;
+            // 
+            // icon2
+            // 
+            this.icon2.Location = new System.Drawing.Point(188, 192);
+            this.icon2.Name = "icon2";
+            this.icon2.Size = new System.Drawing.Size(34, 31);
+            this.icon2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.icon2.TabIndex = 7;
+            this.icon2.TabStop = false;
+            // 
             // AddControl
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -206,11 +206,11 @@
             this.VisibleChanged += new System.EventHandler(this.AddControl_VisibleChanged);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.icon2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.icon1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ImageView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.icon1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.icon2)).EndInit();
             this.ResumeLayout(false);
 
         }

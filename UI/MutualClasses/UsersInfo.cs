@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UI
+namespace MutualClasses
 {
-    public class UsersInfo // Only name, surname and photo
+   public class UsersInfo // Only name, surname and photo
     {
         public UsersInfo(string firstName, string lastName, string text)
         {
@@ -18,4 +18,5 @@ namespace UI
         public string LastName { get; set; }
         public string Text { get; set; }
     }
+
 }
