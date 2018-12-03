@@ -17,7 +17,7 @@ namespace UI.UserControls
         
         int errorcode1 = 1;
         int errorcode2 = 1;
-
+        string ImageName = "";
         public AddControl()
         {
             InitializeComponent();
@@ -32,6 +32,7 @@ namespace UI.UserControls
                 dialog.Filter = "jpg files(*.jpg)|*.jpg| PNG files(*.png)|*.png| All files(*.*)|*.*";
                 if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
+                    ImageName = dialog.SafeFileName;
                     imageLocation = dialog.FileName;
                     ImageView.ImageLocation = imageLocation;
                 }
@@ -58,7 +59,7 @@ namespace UI.UserControls
                 w.Headers.Add("Authorization", "Client-ID " + clientID);
                 var values = new NameValueCollection
                 {
-                     { "image", Convert.ToBase64String(File.ReadAllBytes(@"Image1.jpg")) }
+                     { "image", Convert.ToBase64String(File.ReadAllBytes(ImageName)) }
                 };
 
                 byte[] response = w.UploadValues("https://api.imgur.com/3/upload.xml", values);
