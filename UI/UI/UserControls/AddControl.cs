@@ -51,7 +51,7 @@ namespace UI.UserControls
             string firstName = NameText.Text;
             string lastName = SurnameText.Text;
             string information = InformationText.Text;
-            string text = "photo_url";
+            string photo = "photo_url";
             using (var w = new WebClient())
             {
                 string clientID = "d4a165a802843b0";
@@ -63,7 +63,10 @@ namespace UI.UserControls
 
                 byte[] response = w.UploadValues("https://api.imgur.com/3/upload.xml", values);
                 var xx= XDocument.Load(new MemoryStream(response)).ToString();
-                MessageBox.Show(xx);
+                var link = getBetween(xx, "<link>", "</link>");
+                photo = link;
+                //var xx = XDocument.Load(new MemoryStream(response));
+
             }
 
             if (errorcode1 == 0 || errorcode2 == 0 || string.IsNullOrWhiteSpace(firstName) || string.IsNullOrWhiteSpace(lastName) || string.IsNullOrWhiteSpace(information))
@@ -73,7 +76,7 @@ namespace UI.UserControls
             else
             {
 
-                User user = new User(firstName, lastName, information);
+                User user = new User(firstName, lastName, information, photo);
                 WebServer.WebService service = new WebServer.WebService();
                 service.Inserting(user);
                 NameText.Text = String.Empty;
@@ -109,6 +112,22 @@ namespace UI.UserControls
 
 
 
+        }
+
+
+        public static string getBetween(string strSource, string strStart, string strEnd)
+        {
+            int Start, End;
+            if (strSource.Contains(strStart) && strSource.Contains(strEnd))
+            {
+                Start = strSource.IndexOf(strStart, 0) + strStart.Length;
+                End = strSource.IndexOf(strEnd, Start);
+                return strSource.Substring(Start, End - Start);
+            }
+            else
+            {
+                return "";
+            }
         }
 
         private void NameText_Leave(object sender, EventArgs e)

@@ -75,7 +75,7 @@ namespace MutualClasses
             command.Parameters.AddWithValue("@First_Name", user.FirstName);
             command.Parameters.AddWithValue("@Last_Name", user.LastName);
             command.Parameters.AddWithValue("@Education", user.Information);
-            command.Parameters.AddWithValue("@Photo", "87d87e9wq7888d7w9f7889");
+            command.Parameters.AddWithValue("@Photo", user.Photo);
 
             connection.Open();
             int result = command.ExecuteNonQuery();
@@ -103,7 +103,8 @@ namespace MutualClasses
                         var user = new User(
                             reader["First_Name"].ToString(),
                             reader["Last_Name"].ToString(),
-                            reader["Education"].ToString());
+                            reader["Education"].ToString(),
+                            reader["Photo"].ToString());
 
                         Users.Add(user);
                     }
