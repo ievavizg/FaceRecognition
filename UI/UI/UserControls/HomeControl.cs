@@ -29,8 +29,6 @@ namespace UI.UserControls
                 {
                     imageLocation = dialog.FileName;
                     PictureBox.ImageLocation = imageLocation;
-
-                        
                     //recognizing face and giving small description
                     FaceRecognition recognition = new FaceRecognition();
                     recognition.getInformation();
@@ -41,6 +39,11 @@ namespace UI.UserControls
             {
                 ErrorHandling.Show_Uploading_Error();
             }
+        }
+        public void ChangeHandler(object sender, PhotoChangedEventArgs e)
+        {
+            string imageLocation = e.ImageFileName + ".jpg";
+            PictureBox.ImageLocation = imageLocation;
         }
     }
 }

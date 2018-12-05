@@ -20,6 +20,7 @@ namespace UI.UserControls
         string ImageName = "";
         public AddControl()
         {
+            
             InitializeComponent();
         }
 

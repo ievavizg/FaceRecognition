@@ -164,6 +164,7 @@
             this.cameraControl1.Size = new System.Drawing.Size(837, 582);
             this.cameraControl1.TabIndex = 1;
             this.cameraControl1.Visible = false;
+            this.cameraControl1.PhotoChanged += this.homeControl1.ChangeHandler;
             // 
             // homeControl1
             // 
@@ -174,6 +175,7 @@
             this.homeControl1.Name = "homeControl1";
             this.homeControl1.Size = new System.Drawing.Size(837, 582);
             this.homeControl1.TabIndex = 0;
+            
             // 
             // MainWindow
             // 

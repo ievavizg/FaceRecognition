@@ -16,6 +16,7 @@ namespace UI.UserControls
         
         private int ImageCount = 0;
         Camera cam = new Camera();
+        public event EventHandler<PhotoChangedEventArgs> PhotoChanged;
         public CameraControl()
         {
             
@@ -60,6 +61,8 @@ namespace UI.UserControls
 
             string filename = Application.StartupPath + @"\" + "Image" + ImageCount.ToString();
             cam.Capture(filename);
+            string filename2 = "Image" + ImageCount.ToString();
+            PhotoChanged(this, new PhotoChangedEventArgs(filename));
             ImageCount++;
             MessageBox.Show("Your photo has been saved");
         }
