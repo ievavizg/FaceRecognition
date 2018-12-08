@@ -19,12 +19,12 @@ namespace WebServer
     {
 
         [WebMethod]
-        public void Inserting(User user)
+        public void Inserting(User user, List<User> Users)
         {
             var data = new DatabaseInfo();
             var connection = data.GetConfigInfo();
-
-             data.InsertRow(user, connection);// Inesrt row to table   
+            data.InsertRow(user, connection);// Inesrt row to table  
+            data.GetDataFromDatabase(Users, connection);
         }
 
     }

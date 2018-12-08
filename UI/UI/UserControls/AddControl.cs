@@ -9,6 +9,7 @@ using System.IO;
 using System.Xml.Linq;
 using MutualClasses;
 using WebServer;
+using Newtonsoft.Json;
 
 namespace UI.UserControls
 {
@@ -80,16 +81,21 @@ namespace UI.UserControls
 
                 User user = new User(firstName, lastName, information, photo);
                 WebServer.WebService service = new WebServer.WebService();
-                service.Inserting(user);
+                var Users = new List<User> { };
+                service.Inserting(user, Users);
                 NameText.Text = String.Empty;
                 SurnameText.Text = String.Empty;
                 InformationText.Text = String.Empty;
                 icon1.Image = null;
                 icon2.Image = null;
-                /*
-                var Users = new List<User> { };
-                data.GetDataFromDatabase(Users, connection);// Read information to Collection
-                UsersInfo userPhoto = new UsersInfo(firstName, lastName, text);
+
+                var firstElement = Users.First();
+                string s = JsonConvert.SerializeObject(firstElement);
+                MessageBox.Show(s);
+
+                //data.GetDataFromDatabase(Users, connection);// Read information to Collection
+
+                /*UsersInfo userPhoto = new UsersInfo(firstName, lastName, text);
                 var UsersPhotos = new List<UsersInfo> { };
                 data.GetDataFromDatabase(Users, connection);// Read photo information to Collection 
                 var OrderedUsers = Users.OrderBy(p => p.FirstName);// Linq ordering by name ascending

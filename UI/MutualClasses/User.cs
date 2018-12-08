@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MutualClasses
 {
-    public class User : IEnumerable // Only name, surname and information
+    public class User   // Only name, surname and information
     {
         public User(string firstName, string lastName, string information, string photo)
         {
@@ -21,9 +21,5 @@ namespace MutualClasses
         public string Information { get; set; }
         public string Photo { get; set; }
 
-        public IEnumerator GetEnumerator()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

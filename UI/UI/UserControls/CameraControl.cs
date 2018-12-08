@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DarrenLee.Media;
+using Emgu.CV;
+
 
 namespace UI.UserControls
 {
@@ -21,6 +23,7 @@ namespace UI.UserControls
         {
             
             InitializeComponent();
+
             GetInfo();
             cam.OnFrameArrived += MyCamera_OnFrameArrived;
 
@@ -58,6 +61,10 @@ namespace UI.UserControls
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
+
+
+
+
 
             string filename = Application.StartupPath + @"\" + "Image" + ImageCount.ToString();
             cam.Capture(filename);
