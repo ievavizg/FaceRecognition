@@ -69,9 +69,10 @@ namespace MutualClasses
         // Insert row to table   InsertRow(user, connection);
         public void InsertRow(User user, SqlConnection connection)
         {
-            var commandString = "INSERT INTO dbo.PeopleFaceTable (First_Name, Last_Name ,Education, Photo) VALUES (@First_Name, @Last_Name, @Education, @Photo)";
+            var commandString = "INSERT INTO dbo.PeopleFaceRecognitionTable (ID, First_Name, Last_Name ,Education, Photo) VALUES (@ID, @First_Name, @Last_Name, @Education, @Photo)";
             SqlCommand command = new SqlCommand(commandString, connection);
 
+            command.Parameters.AddWithValue("@ID", 12345);
             command.Parameters.AddWithValue("@First_Name", user.FirstName);
             command.Parameters.AddWithValue("@Last_Name", user.LastName);
             command.Parameters.AddWithValue("@Education", user.Information);
@@ -92,7 +93,7 @@ namespace MutualClasses
         public void GetDataFromDatabase(List<User> Users, SqlConnection connection)
         {
             //var user = new User
-            var commandString = "Select * From dbo.PeopleFaceTable";
+            var commandString = "Select * From dbo.PeopleFaceRecognitionTable";
             using (SqlCommand command = new SqlCommand(commandString, connection))
             {
                 connection.Open();
@@ -101,6 +102,7 @@ namespace MutualClasses
                     while (reader.Read())
                     {
                         var user = new User(
+                            reader["ID"].ToString(),
                             reader["First_Name"].ToString(),
                             reader["Last_Name"].ToString(),
                             reader["Education"].ToString(),

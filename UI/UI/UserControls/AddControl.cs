@@ -48,12 +48,13 @@ namespace UI.UserControls
 
         //Add button action
         public void AddButton_Click(object sender, EventArgs e)
-        {
+        {    
 
             string firstName = NameText.Text;
             string lastName = SurnameText.Text;
             string information = InformationText.Text;
             string photo = "photo_url";
+            string id = "12345";
             using (var w = new WebClient())
             {
                 string clientID = "d4a165a802843b0";
@@ -78,7 +79,7 @@ namespace UI.UserControls
             else
             {
 
-                User user = new User(firstName, lastName, information, photo);
+                User user = new User(id, firstName, lastName, information, photo);
                 WebServer.WebService service = new WebServer.WebService();
                 service.Inserting(user);
                 NameText.Text = String.Empty;
