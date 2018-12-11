@@ -72,7 +72,7 @@ namespace MutualClasses
             var commandString = "INSERT INTO dbo.PeopleFaceRecognitionTable (ID, First_Name, Last_Name ,Education, Photo) VALUES (@ID, @First_Name, @Last_Name, @Education, @Photo)";
             SqlCommand command = new SqlCommand(commandString, connection);
 
-            command.Parameters.AddWithValue("@ID", 12345);
+            command.Parameters.AddWithValue("@ID", user.ID);
             command.Parameters.AddWithValue("@First_Name", user.FirstName);
             command.Parameters.AddWithValue("@Last_Name", user.LastName);
             command.Parameters.AddWithValue("@Education", user.Information);

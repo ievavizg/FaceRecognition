@@ -54,7 +54,7 @@ namespace UI.UserControls
             string lastName = SurnameText.Text;
             string information = InformationText.Text;
             string photo = "photo_url";
-            string id = "12345";
+            string id = "12346";
             using (var w = new WebClient())
             {
                 string clientID = "d4a165a802843b0";
