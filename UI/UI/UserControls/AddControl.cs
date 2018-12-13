@@ -7,9 +7,8 @@ using System.Net;
 using System.Collections.Specialized;
 using System.IO;
 using System.Xml.Linq;
-using System.Data.SqlClient;
-using System.Threading;
-using System.Threading.Tasks;
+using MutualClasses;
+using WebServer;
 
 namespace UI.UserControls
 {
@@ -18,33 +17,27 @@ namespace UI.UserControls
         
         int errorcode1 = 1;
         int errorcode2 = 1;
-        
+        string ImageName = "";
         public AddControl()
         {
+            
             InitializeComponent();
         }
-       Lazy<DatabaseInfo> LazyData = new Lazy<DatabaseInfo>();
-
 
         private void UploadPhotoButton_Click(object sender, EventArgs e)
         {
             string imageLocation = "";
-            Thread thread = new Thread(Method);
-            thread.Start();
-            thread.Join();
-
-            Task MyTask = Task.Run(() => Method());
-            MyTask.Wait();
-
             try
             {
                 OpenFileDialog dialog = new OpenFileDialog();
                 dialog.Filter = "jpg files(*.jpg)|*.jpg| PNG files(*.png)|*.png| All files(*.*)|*.*";
                 if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
+                    ImageName = dialog.SafeFileName;
                     imageLocation = dialog.FileName;
                     ImageView.ImageLocation = imageLocation;
                 }
+                
             }
             catch (Exception)
             {
@@ -52,32 +45,31 @@ namespace UI.UserControls
             }
         }
 
-        public void Method()
-        {
 
-        }
-
-        
         //Add button action
-        private void AddButton_Click(object sender, EventArgs e)
-        {
+        public void AddButton_Click(object sender, EventArgs e)
+        {    
 
             string firstName = NameText.Text;
             string lastName = SurnameText.Text;
             string information = InformationText.Text;
-            string text = "photo_url";
+            string photo = "photo_url";
+            string id = "12346";
             using (var w = new WebClient())
             {
                 string clientID = "d4a165a802843b0";
                 w.Headers.Add("Authorization", "Client-ID " + clientID);
                 var values = new NameValueCollection
                 {
-                     { "image", Convert.ToBase64String(File.ReadAllBytes(@"Image1.jpg")) }
+                     { "image", Convert.ToBase64String(File.ReadAllBytes(ImageName)) }
                 };
 
                 byte[] response = w.UploadValues("https://api.imgur.com/3/upload.xml", values);
                 var xx= XDocument.Load(new MemoryStream(response)).ToString();
-               // MessageBox.Show(xx);
+                var link = getBetween(xx, "<link>", "</link>");
+                photo = link;
+                //var xx = XDocument.Load(new MemoryStream(response));
+
             }
 
             if (errorcode1 == 0 || errorcode2 == 0 || string.IsNullOrWhiteSpace(firstName) || string.IsNullOrWhiteSpace(lastName) || string.IsNullOrWhiteSpace(information))
@@ -87,48 +79,58 @@ namespace UI.UserControls
             else
             {
 
-                DatabaseInfo data = LazyData.Value;
-                //data.Myevent += delegate (object ) { }
-                var connection = data.GetConfigInfo();
-                User user = new User(firstName, lastName, information);
-
-
-                WebService.WebService service = new WebService.WebService();
-                //service.InsertRow(user, connection);
-                data.InsertRow(user, connection);// Inesrt row to table   
+                User user = new User(id, firstName, lastName, information, photo);
+                WebServer.WebService service = new WebServer.WebService();
+                service.Inserting(user);
+                NameText.Text = String.Empty;
+                SurnameText.Text = String.Empty;
+                InformationText.Text = String.Empty;
+                icon1.Image = null;
+                icon2.Image = null;
+                /*
                 var Users = new List<User> { };
-                //service.GetDataFromDatabase(Users, connection);
-                data.GetDataFromDatabase(Users, connection);// Read information to Collectionion
+                data.GetDataFromDatabase(Users, connection);// Read information to Collection
                 UsersInfo userPhoto = new UsersInfo(firstName, lastName, text);
                 var UsersPhotos = new List<UsersInfo> { };
                 data.GetDataFromDatabase(Users, connection);// Read photo information to Collection 
                 var OrderedUsers = Users.OrderBy(p => p.FirstName);// Linq ordering by name ascending
-                //var JoinedUsers = data.GroupJoinCollections(Users, UsersPhotos);
-                    var JoinedUsers = from p in OrderedUsers
-                                      join c in UsersPhotos
-                                      on p.FirstName equals c.FirstName
-                                      select new
-                                      {
-                                          PersonName = p.FirstName,
-                                          PersonSurname = c.LastName,
-                                          PersonInfo = p.Information,
-                                          PersonPhoto = c.Text
-                                      };
-            
-                    
                 NameText.Text = String.Empty;
                 SurnameText.Text = String.Empty;
                 InformationText.Text = String.Empty;
-                ImageView.Image = null;
                 icon1.Image = null;
                 icon2.Image = null;
-                
-               
+                //var JoinedUsers = data.GroupJoinCollections(Users, UsersPhotos);
+                var JoinedUsers = from p in OrderedUsers
+                                  join c in UsersPhotos
+                                  on p.FirstName equals c.FirstName
+                                  select new
+                                  {
+                                      PersonName = p.FirstName,
+                                      PersonSurname = c.LastName,
+                                      PersonInfo = p.Information,
+                                      PersonPhoto = c.Text
+                                  };*/
             }
 
 
 
 
+        }
+
+
+        public static string getBetween(string strSource, string strStart, string strEnd)
+        {
+            int Start, End;
+            if (strSource.Contains(strStart) && strSource.Contains(strEnd))
+            {
+                Start = strSource.IndexOf(strStart, 0) + strStart.Length;
+                End = strSource.IndexOf(strEnd, Start);
+                return strSource.Substring(Start, End - Start);
+            }
+            else
+            {
+                return "";
+            }
         }
 
         private void NameText_Leave(object sender, EventArgs e)
@@ -170,7 +172,5 @@ namespace UI.UserControls
                 icon2.Image = null;
             }
         }
-        
-       
     }
 }

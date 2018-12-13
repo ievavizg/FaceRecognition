@@ -16,20 +16,15 @@ namespace UI.UserControls
         
         private int ImageCount = 0;
         Camera cam = new Camera();
+        public event EventHandler<PhotoChangedEventArgs> PhotoChanged;
         public CameraControl()
         {
             
             InitializeComponent();
             GetInfo();
-            cam.OnFrameArrived += delegate(object source, FrameArrivedEventArgs e) {
-                Image img = e.GetFrame();
-                pictureBox1.Image = img;
-            };
-            
-           
+            cam.OnFrameArrived += MyCamera_OnFrameArrived;
 
         }
-        
         private void GetInfo()
         {
             var cameraDevices = cam.GetCameraSources();
@@ -46,7 +41,11 @@ namespace UI.UserControls
             cmdCameraResolutions.SelectedIndex = 0;
         }
         
-        
+        private void MyCamera_OnFrameArrived(object source, FrameArrivedEventArgs e)
+        {
+            Image img = e.GetFrame();
+            pictureBox1.Image = img;
+        }
         private void cmdCameraResolutions_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             cam.Start(cmdCameraResolutions.SelectedIndex);
@@ -62,6 +61,8 @@ namespace UI.UserControls
 
             string filename = Application.StartupPath + @"\" + "Image" + ImageCount.ToString();
             cam.Capture(filename);
+            string filename2 = "Image" + ImageCount.ToString();
+            PhotoChanged(this, new PhotoChangedEventArgs(filename));
             ImageCount++;
             MessageBox.Show("Your photo has been saved");
         }
@@ -79,9 +80,5 @@ namespace UI.UserControls
         {
             cam.Stop();
         }
-
-
-
-        
     }
 }

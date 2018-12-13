@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MutualClasses;
 
 namespace UI.UserControls
 {
@@ -28,8 +29,6 @@ namespace UI.UserControls
                 {
                     imageLocation = dialog.FileName;
                     PictureBox.ImageLocation = imageLocation;
-
-                        
                     //recognizing face and giving small description
                     FaceRecognition recognition = new FaceRecognition();
                     recognition.getInformation();
@@ -40,6 +39,11 @@ namespace UI.UserControls
             {
                 ErrorHandling.Show_Uploading_Error();
             }
+        }
+        public void ChangeHandler(object sender, PhotoChangedEventArgs e)
+        {
+            string imageLocation = e.ImageFileName + ".jpg";
+            PictureBox.ImageLocation = imageLocation;
         }
     }
 }

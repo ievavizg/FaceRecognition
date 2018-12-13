@@ -13,6 +13,7 @@ namespace UI
 {
     public partial class MainWindow : Form
     {
+        string ImageName;
        
         public MainWindow()
         {
